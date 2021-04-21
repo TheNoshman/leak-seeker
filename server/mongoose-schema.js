@@ -17,7 +17,11 @@ const vehicleData = new mongoose.Schema({
     type: 'String',
     required: true,
   },
-  year: {
+  yearFrom: {
+    type: 'Number',
+    required: true,
+  },
+  yearTo: {
     type: 'Number',
     required: true,
   },
