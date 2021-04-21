@@ -7,7 +7,7 @@ router.get('/', (req, res) => controller.getFunction(req, res));
 router.get('/search/:reg', (req, res) => controller.getVehicleFromReg(req, res));
 
 // // POST REQUEST
-router.post('/', (req, res) => controller.postFunction(req, res));
+router.post('/addfault', (req, res) => controller.addFault(req, res));
 
 // // PUT (UPDATE) REQUEST
 // router.put('/:name/:newValue', (req, res) => controller.updateFunction(req, res));

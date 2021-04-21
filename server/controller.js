@@ -1,11 +1,11 @@
 const {mongooseRegModel, mongooseVehicleModel} = require('./mongoose-schema.js')
 
-// GET REQUEST
+// GET ALL VEHICLE RECORDS REQUEST
 const getFunction = async function (req, res) {
   try {
     const allDocs = await mongooseVehicleModel.find((err, docs) => {return docs})
     // find one doc from collection
-    // const oneDoc = await mongooseVehicleModel.findOne({ name: 'test' }, (err, docs) => {console.log('findOne = ', docs)})
+    // const vehicleRecord = await mongooseVehicleModel.findOne({ name: 'test' }, (err, docs) => {console.log('findOne = ', docs)})
     res.send(allDocs)
     console.log('get request success')
   } catch (error) {
@@ -13,14 +13,19 @@ const getFunction = async function (req, res) {
   }
 };
 
-
-// GET REQUEST
+// THIS WILL BE THE MAIN GET REQUEST
+// GET SPECIFIC VEHCILE RECORDS FROM REG REQUEST
 const getVehicleFromReg = async function (req, res) {
   try {
     // find one doc from collection
-    console.log(req.params.reg)
-    const oneDoc = await mongooseRegModel.findOne({ reg: req.params.reg }, (err, docs) => {console.log('findOne = ', docs)})
-    res.send(oneDoc)
+    const regToVehicle = await mongooseRegModel.findOne({ reg: req.params.reg }, (err, docs) => {console.log('regToVehicle = ', docs)})
+
+    const vehicleRecord = await mongooseVehicleModel.findOne({
+      make: regToVehicle.make,
+      model: regToVehicle.model
+    }, (err, docs) => {console.log('vehicleRecord = ', docs)})
+
+    res.send(vehicleRecord)
     console.log('get request success')
   } catch (error) {
     console.error('Failed to get document from database, error -> ', error);
@@ -32,16 +37,16 @@ const getVehicleFromReg = async function (req, res) {
 
 
 // POST REQUEST
-const postFunction = async function (req, res) {
+const addFault = async function (req, res) {
   try {
   const requestBody = req.body;
-  console.log(requestBody)
   const doc = new mongooseVehicleModel({
     make: requestBody.make,
     model: requestBody.model,
     year: requestBody.year,
     faults: requestBody.faults,
   });
+  console.log(doc)
   await doc.save();
   res.send(`Saved POST request to database`)
   } catch (error) {
@@ -96,7 +101,7 @@ const deleteFunction = async function (req, res) {
 
 
 
-module.exports = { getFunction, getVehicleFromReg, postFunction, updateFunction, deleteFunction };
+module.exports = { getFunction, getVehicleFromReg, addFault, updateFunction, deleteFunction };
 
 
 

@@ -10,44 +10,37 @@ const regCollection = process.env.REGCOLLECTION;
 
 const vehicleData = new mongoose.Schema({
   make: {
-    type: String,
+    type: 'String',
     required: true,
   },
   model: {
-    type: String,
+    type: 'String',
     required: true,
   },
   year: {
-    type: Number,
+    type: 'Number',
     required: true,
   },
-  faults: [{
-    summary: String,
-    description: String,
-    area: String,
-    priceToFix: Number,
-    faultLogged: Number,
-    score: Number,
-  }],
-
+  faults: {
+    type: ['Mixed'],
+  },
+  __v: {
+    type: 'Number',
+  },
 });
 
 const regToModel = new mongoose.Schema({
   reg: {
     type: String,
-    required: true,
   },
   make: {
     type: String,
-    required: true,
   },
   model: {
     type: String,
-    required: true,
   },
   year: {
     type: Number,
-    required: true,
   },
 });
 
@@ -56,7 +49,4 @@ const regToModel = new mongoose.Schema({
 const mongooseRegModel = mongoose.model(regCollection, regToModel);
 const mongooseVehicleModel = mongoose.model(vehCollection, vehicleData);
 
-module.exports = {mongooseRegModel, mongooseVehicleModel};
-
-
-
+module.exports = { mongooseRegModel, mongooseVehicleModel };
