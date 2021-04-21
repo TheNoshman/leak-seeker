@@ -1,23 +1,42 @@
-const mongooseModel = require('./mongoose-schema.js')
+const {mongooseRegModel, mongooseVehicleModel} = require('./mongoose-schema.js')
 
 // GET REQUEST
 const getFunction = async function (req, res) {
   try {
-    const allDocs = await mongooseModel.find((err, docs) => {return docs})
+    const allDocs = await mongooseVehicleModel.find((err, docs) => {return docs})
     // find one doc from collection
-    // const oneDoc = await mongooseModel.findOne({ name: 'test' }, (err, docs) => {console.log('findOne = ', docs)})
+    // const oneDoc = await mongooseVehicleModel.findOne({ name: 'test' }, (err, docs) => {console.log('findOne = ', docs)})
     res.send(allDocs)
+    console.log('get request success')
   } catch (error) {
     console.error('Failed to get document from database, error -> ', error);
   }
 };
+
+
+// GET REQUEST
+const getVehicleFromReg = async function (req, res) {
+  try {
+    // find one doc from collection
+    console.log(req.params.reg)
+    const oneDoc = await mongooseRegModel.findOne({ reg: req.params.reg }, (err, docs) => {console.log('findOne = ', docs)})
+    res.send(oneDoc)
+    console.log('get request success')
+  } catch (error) {
+    console.error('Failed to get document from database, error -> ', error);
+  }
+};
+
+
+
+
 
 // POST REQUEST
 const postFunction = async function (req, res) {
   try {
   const requestBody = req.body;
   console.log(requestBody)
-  const doc = new mongooseModel({
+  const doc = new mongooseVehicleModel({
     make: requestBody.make,
     model: requestBody.model,
     year: requestBody.year,
@@ -77,7 +96,7 @@ const deleteFunction = async function (req, res) {
 
 
 
-module.exports = { getFunction, postFunction, updateFunction, deleteFunction };
+module.exports = { getFunction, getVehicleFromReg, postFunction, updateFunction, deleteFunction };
 
 
 

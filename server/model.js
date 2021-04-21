@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const url = process.env.URL;
-const collection = process.env.COLLECTION;
+
 
 
 mongoose.connect(
@@ -16,7 +16,7 @@ mongoose.connect(
     if (err) {
       return console.log(err);
     } else {
-      console.log(`Mongoose connected with collection -> ${collection} 😎😎😎`);
+      console.log(`Mongoose connected 😎😎😎`);
     }
   }
 );

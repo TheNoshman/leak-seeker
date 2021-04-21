@@ -4,6 +4,7 @@ const router = require('express').Router();
 
 // GET REQUEST
 router.get('/', (req, res) => controller.getFunction(req, res));
+router.get('/search/:reg', (req, res) => controller.getVehicleFromReg(req, res));
 
 // // POST REQUEST
 router.post('/', (req, res) => controller.postFunction(req, res));

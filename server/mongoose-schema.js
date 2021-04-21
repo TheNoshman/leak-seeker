@@ -5,7 +5,8 @@
 require('dotenv').config();
 const mongoose = require('./model.js');
 
-const collection = process.env.COLLECTION;
+const vehCollection = process.env.VEHICLECOLLECTION;
+const regCollection = process.env.REGCOLLECTION;
 
 const vehicleData = new mongoose.Schema({
   make: {
@@ -31,11 +32,31 @@ const vehicleData = new mongoose.Schema({
 
 });
 
+const regToModel = new mongoose.Schema({
+  reg: {
+    type: String,
+    required: true,
+  },
+  make: {
+    type: String,
+    required: true,
+  },
+  model: {
+    type: String,
+    required: true,
+  },
+  year: {
+    type: Number,
+    required: true,
+  },
+});
+
 // 'COLLECTIONNAME' IS THE NAME OF THE COLLECTION. ENSURE THIS IS CORRECT
 // HAS AN EXTRA s ADDED, PLURALISED
-const mongooseModel = mongoose.model(collection, vehicleData);
+const mongooseRegModel = mongoose.model(regCollection, regToModel);
+const mongooseVehicleModel = mongoose.model(vehCollection, vehicleData);
 
-module.exports = mongooseModel;
+module.exports = {mongooseRegModel, mongooseVehicleModel};
 
 
 
