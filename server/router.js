@@ -4,7 +4,8 @@ const router = require('express').Router();
 
 // GET REQUEST
 router.get('/', (req, res) => controller.getFunction(req, res));
-router.get('/search/:reg', (req, res) => controller.getVehicleFromReg(req, res));
+
+router.get('/search/:reg', (req, res) => controller.getFaultsFromReg(req, res));
 
 // // POST REQUEST
 router.post('/addfault', (req, res) => controller.addFault(req, res));

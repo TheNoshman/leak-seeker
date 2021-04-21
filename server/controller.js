@@ -15,15 +15,17 @@ const getFunction = async function (req, res) {
 
 // THIS WILL BE THE MAIN GET REQUEST
 // GET SPECIFIC VEHCILE RECORDS FROM REG REQUEST
-const getVehicleFromReg = async function (req, res) {
+const getFaultsFromReg = async function (req, res) {
+
+  // TO-DO -> FILTER BY YEAR
   try {
-    // find one doc from collection
-    const regToVehicle = await mongooseRegModel.findOne({ reg: req.params.reg }, (err, docs) => {console.log('regToVehicle = ', docs)})
+
+    const regToVehicle = await mongooseRegModel.findOne({ reg: req.params.reg }, (err, record) => {console.log('regToVehicle = ', record)})
 
     const vehicleRecord = await mongooseVehicleModel.findOne({
       make: regToVehicle.make,
       model: regToVehicle.model
-    }, (err, docs) => {console.log('vehicleRecord = ', docs)})
+    }, (err, record) => {console.log('vehicleRecord = ', record)})
 
     res.send(vehicleRecord)
     console.log('get request success')
@@ -40,14 +42,25 @@ const getVehicleFromReg = async function (req, res) {
 const addFault = async function (req, res) {
   try {
   const requestBody = req.body;
-  const doc = new mongooseVehicleModel({
+
+   const regRecord = new mongooseRegModel({
+    reg: requestBody.reg,
+    make: requestBody.make,
+    model: requestBody.model,
+    year: requestBody.year,
+  });
+
+
+  const faultRecord = new mongooseVehicleModel({
     make: requestBody.make,
     model: requestBody.model,
     year: requestBody.year,
     faults: requestBody.faults,
   });
-  console.log(doc)
-  await doc.save();
+
+  console.log(faultRecord)
+  await faultRecord.save();
+  await regRecord.save();
   res.send(`Saved POST request to database`)
   } catch (error) {
     console.error('Failed to save document to database, error -> ', error);
@@ -101,7 +114,7 @@ const deleteFunction = async function (req, res) {
 
 
 
-module.exports = { getFunction, getVehicleFromReg, addFault, updateFunction, deleteFunction };
+module.exports = { getFunction, getFaultsFromReg, addFault, updateFunction, deleteFunction };
 
 
 
