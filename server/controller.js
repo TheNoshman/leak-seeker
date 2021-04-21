@@ -3,7 +3,6 @@ const mongooseModel = require('./mongoose-schema.js')
 // GET REQUEST
 const getFunction = async function (req, res) {
   try {
-    // find all docs from collection
     const allDocs = await mongooseModel.find((err, docs) => {return docs})
     // find one doc from collection
     // const oneDoc = await mongooseModel.findOne({ name: 'test' }, (err, docs) => {console.log('findOne = ', docs)})
@@ -17,11 +16,16 @@ const getFunction = async function (req, res) {
 const postFunction = async function (req, res) {
   try {
   const requestBody = req.body;
-  // CHANGE THE PARAMETERS TO SUIT SCHEMA/ DATA
-  const doc = new mongooseModel({name: requestBody.name, age: requestBody.age});
+  console.log(requestBody)
+  const doc = new mongooseModel({
+    make: requestBody.make,
+    model: requestBody.model,
+    year: requestBody.year,
+    faults: requestBody.faults,
+  });
   await doc.save();
   res.send(`Saved POST request to database`)
-  } catch (e) {
+  } catch (error) {
     console.error('Failed to save document to database, error -> ', error);
   }
 }
