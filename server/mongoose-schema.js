@@ -1,13 +1,11 @@
-// SCHEMA - DEFINES THE STRUCTURE OF DOCUMENT
-// MODEL - BASED ON THE SCHEMA; PROVIDES INTERFACE TO BE ABLE TO HANDLE DATA
 
-// MONGOOSE AUTOMATICALLY ASSIGNS A UNIQUE ID
 require('dotenv').config();
 const mongoose = require('./model.js');
 
 const vehCollection = process.env.VEHICLECOLLECTION;
 const regCollection = process.env.REGCOLLECTION;
 
+// FAULT RECORD SCHEMA
 const vehicleData = new mongoose.Schema({
   make: {
     type: 'String',
@@ -17,18 +15,12 @@ const vehicleData = new mongoose.Schema({
     type: 'String',
     required: true,
   },
-  year: {
-    type: 'Number',
-    required: true,
-  },
   faults: {
     type: ['Mixed'],
   },
-  __v: {
-    type: 'Number',
-  },
 });
 
+// API MOCK REG SEARCH RESULT SCHEMA
 const regToModel = new mongoose.Schema({
   reg: {
     type: String,
@@ -39,13 +31,9 @@ const regToModel = new mongoose.Schema({
   model: {
     type: String,
   },
-  year: {
-    type: Number,
-  },
 });
 
-// 'COLLECTIONNAME' IS THE NAME OF THE COLLECTION. ENSURE THIS IS CORRECT
-// HAS AN EXTRA s ADDED, PLURALISED
+
 const mongooseRegModel = mongoose.model(regCollection, regToModel);
 const mongooseVehicleModel = mongoose.model(vehCollection, vehicleData);
 
