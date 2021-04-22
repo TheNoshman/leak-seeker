@@ -85,37 +85,37 @@ const addFault = async function (req, res) {
 
 // PUT / UPDATE REQUEST
 const updateFunction = async function (req, res) {
-  // MIGHT BE AN OBJECT, MAYBE NEEDS DESTRUCTURING
-  const { name, newValue } = req.params;
-  // console.log(name, newValue)
-  try {
-    // Returns an array, we want the json object
-    const doc = await mongooseModel.find({ name: name });
-    doc[0].age = newValue;
-    console.log(doc);
-    await doc[0].save();
-    res.send(`Update request success`);
-  } catch (error) {
-    console.error(
-      'Failed to find and update document from database, error -> ',
-      error
-    );
-  }
+  // // MIGHT BE AN OBJECT, MAYBE NEEDS DESTRUCTURING
+  // const { name, newValue } = req.params;
+  // // console.log(name, newValue)
+  // try {
+  //   // Returns an array, we want the json object
+  //   const doc = await mongooseModel.find({ name: name });
+  //   doc[0].age = newValue;
+  //   console.log(doc);
+  //   await doc[0].save();
+  //   res.send(`Update request success`);
+  // } catch (error) {
+  //   console.error(
+  //     'Failed to find and update document from database, error -> ',
+  //     error
+  //   );
+  // }
 };
 
 // DELETE REQUEST
 const deleteFunction = async function (req, res) {
-  const { name } = req.params;
-  console.log(name);
-  try {
-    await mongooseModel.findOneAndRemove({ name: name });
-    res.send(`Delete request success`);
-  } catch (error) {
-    console.error(
-      'Failed to find and remove document from database, error -> ',
-      error
-    );
-  }
+  // const { name } = req.params;
+  // console.log(name);
+  // try {
+  //   await mongooseModel.findOneAndRemove({ name: name });
+  //   res.send(`Delete request success`);
+  // } catch (error) {
+  //   console.error(
+  //     'Failed to find and remove document from database, error -> ',
+  //     error
+  //   );
+  // }
 };
 
 module.exports = {
