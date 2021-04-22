@@ -1,9 +1,12 @@
-import './App.css';
+import './css/app.css'
+import Navbar from './components/navbar'
+import MainPageContainer from './containers/mainpage'
 
 function App() {
   return (
     <div className="App">
-      <h1>WASSUP</h1>
+      <Navbar />
+      <MainPageContainer />
     </div>
   );
 }

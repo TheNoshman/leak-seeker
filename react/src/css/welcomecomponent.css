@@ -1,0 +1,8 @@
+.welcome-container {
+  height: 20rem;
+  width:60vw;
+}
+
+.button-container {
+  display: flex;
+}
