@@ -31,7 +31,7 @@ const WelcomeChoiceButton = ({ searchType }) => {
       {/*IF SEARCH FAULTS BUTTON IS CLICKED*/}
       {searchClicked && (
         <div className='input-box-div'>
-          <form>
+          <form className='input-box-form'>
             <label>
               <input
                 type="text"
@@ -43,7 +43,7 @@ const WelcomeChoiceButton = ({ searchType }) => {
             </label>
 
           <p>Your reg:</p>
-          <p>{inputText.reg}</p>
+          <p className='input-output'>{inputText.reg}</p>
             <input type="submit" value="Submit" />
           </form>
         </div>
@@ -51,9 +51,9 @@ const WelcomeChoiceButton = ({ searchType }) => {
 
       {/*IF REGISTER FAULT BUTTON IS CLICKED*/}
       {logClicked && (
-        <div className='input-box-div'>
-          <form>
-            <label>
+        <div>
+          <form className='input-box-form'>
+            <label>Registration
               <input
                 type="text"
                 name='reg'
@@ -63,12 +63,9 @@ const WelcomeChoiceButton = ({ searchType }) => {
               />
             </label>
 
-          <p>Your reg:</p>
-          <p>{inputText.reg}</p>
 
 
-
-          <label>
+          <label>Make/ Brand
               <input
                 type="text"
                 name='make'
@@ -78,11 +75,10 @@ const WelcomeChoiceButton = ({ searchType }) => {
               />
             </label>
 
-          <p>Make:</p>
-          <p>{inputText.make}</p>
 
 
-          <label>
+
+          <label>Model
               <input
                 type="text"
                 name='model'
@@ -92,8 +88,7 @@ const WelcomeChoiceButton = ({ searchType }) => {
               />
             </label>
 
-          <p>Make:</p>
-          <p>{inputText.model}</p>
+
 
 
             <input type="submit" value="Submit" />
