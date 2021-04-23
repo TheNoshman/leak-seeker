@@ -3,23 +3,17 @@ import { useState, useEffect } from 'react';
 import FaultListContainer from './faultlistcontainer';
 import LeftSidebar from '../components/faultpage/leftsidebar';
 import RightDataDisplay from '../components/faultpage/rightdatadisplay';
+import { getAllFaults } from '../service/service-api';
 
 const MainFaultPageContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const [allFaults, setAllFaults] = useState([
-    {
-      rating: 17,
-    },
-    {
-      rating: 22,
-    },
-  ]);
+  const [allFaults, setAllFaults] = useState([]);
 
-  // useEffect(() => {
-  // getFaults().then((fault) => setAllFaults(fault))
-  // .then(() => setIsLoading(false))
-  // }, []);
+  useEffect(() => {
+  getAllFaults().then((faults) => setAllFaults(faults))
+  .then(() => setIsLoading(false))
+  }, []);
 
   return (
     <div className="columns-container">

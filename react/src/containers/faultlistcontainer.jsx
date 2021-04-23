@@ -5,7 +5,7 @@ const FaultListContainer = ({allFaults}) => {
 
   const faultsArray = allFaults.map((fault) => (
     <FaultItem
-      rating={fault.rating}
+      rating={fault.model}
     />
   ));
 

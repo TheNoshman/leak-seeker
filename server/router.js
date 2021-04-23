@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 // GET REQUEST
 // GET ALL - FOR TESTING
-router.get('/', (req, res) => controller.getFunction(req, res));
+router.get('/getallfaults', (req, res) => controller.getFunction(req, res));
 
 // GET SPECIFIC FAULTS
 router.get('/search/:reg', (req, res) => controller.getFaultsFromReg(req, res));
