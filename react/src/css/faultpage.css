@@ -1,3 +1,5 @@
+
+/*MAIN FAULT PAGE*/
 .columns-container {
   display: flex;
   flex: 1;
@@ -13,9 +15,29 @@
 }
 
 .middle-col {
-  flex-grow: 3
+  flex-grow: 9
 }
 
 .right-col {
-  flex-grow: 2
+  flex-grow: 3
+}
+
+
+/*FAULT LIST ITME*/
+.entire-container {
+  display: flex;
+  height: 5rem;
+}
+
+.counter-section {
+  width: 10%;
+}
+
+.main-fault-section {
+width: 90%
+}
+
+.placeholder {
+  flex-grow: 12;
+  display: flex;
 }

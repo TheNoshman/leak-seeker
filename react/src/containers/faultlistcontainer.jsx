@@ -1,13 +1,20 @@
 import SearchBar from '../components/faultpage/searchbar';
 import FaultItem from '../components/faultpage/faultitem';
 
-const FaultListContainer = () => {
+const FaultListContainer = ({allFaults}) => {
+
+  const faultsArray = allFaults.map((fault) => (
+    <FaultItem
+      rating={fault.rating}
+    />
+  ));
+
+
   return (
     <div className="middle-col col">
       <SearchBar />
-      <div>
-        <FaultItem />
-        <FaultItem />
+      <div className='all-faults-container-div'>
+        {faultsArray}
       </div>
     </div>
   );
@@ -18,11 +25,3 @@ export default FaultListContainer;
 
 
 
-//         {!status ? (
-//           <EventContainer allEvents={events} />
-//           ) : <>Still loading...</>
-//       }
-//           <CreateContainer updaterFunc={updaterFunc}/>
-//         </div>
-//       </div>
-//     );

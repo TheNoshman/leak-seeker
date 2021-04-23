@@ -1,17 +1,41 @@
-import '../css/faultpage.css'
-import  FaultListContainer  from './faultlistcontainer';
-import  LeftSidebar  from '../components/faultpage/leftsidebar';
-import  RightDataDisplay  from '../components/faultpage/rightdatadisplay';
-
+import '../css/faultpage.css';
+import { useState, useEffect } from 'react';
+import FaultListContainer from './faultlistcontainer';
+import LeftSidebar from '../components/faultpage/leftsidebar';
+import RightDataDisplay from '../components/faultpage/rightdatadisplay';
 
 const MainFaultPageContainer = () => {
-  return (
-    <div className='columns-container'>
-      <LeftSidebar />
-      <FaultListContainer />
-      <RightDataDisplay />
-    </div>
-  )
-}
+  const [isLoading, setIsLoading] = useState(false);
 
-export default MainFaultPageContainer
+  const [allFaults, setAllFaults] = useState([
+    {
+      rating: 17,
+    },
+    {
+      rating: 22,
+    },
+  ]);
+
+  // useEffect(() => {
+  // getFaults().then((fault) => setAllFaults(fault))
+  // .then(() => setIsLoading(false))
+  // }, []);
+
+  return (
+    <div className="columns-container">
+      <LeftSidebar />
+      {!isLoading ? (
+        <div className='placeholder'>
+          <FaultListContainer allFaults={allFaults} />
+          <RightDataDisplay />
+        </div>
+      ) : (
+        <div className='placeholder'>
+          <>Loading...</>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default MainFaultPageContainer;
