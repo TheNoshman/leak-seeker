@@ -34,3 +34,57 @@ h1, h3 {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navbar-cont {
+  display: flex;
+  justify-content: space-between;
+  height: 3.5rem;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+}
+
+.navbar-right-item {
+  margin: 1rem;
+}
+
+.navbar-logo-img {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.mainpage {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+
+

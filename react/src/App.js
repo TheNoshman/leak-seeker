@@ -1,12 +1,12 @@
 import './css/app.css'
 import Navbar from './components/navbar'
-import MainPageContainer from './containers/mainpage'
+import OverallMainContainer from './containers/overallmaincontainer'
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <MainPageContainer />
+      <OverallMainContainer />
     </div>
   );
 }

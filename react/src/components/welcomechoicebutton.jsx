@@ -1,21 +1,67 @@
 import { useState } from 'react';
-import '../css/welcomecomponent.css'
+import '../css/welcomepage.css';
 
-const WelcomeChoiceButton = ({ searchType }) => {
+const WelcomeChoiceButton = ({searchType, setIntroPage} ) => {
+
+  // THESE STATES TRACK WHICH DROP DOWN TO SHOW
   const [searchClicked, setSearchClicked] = useState(false);
   const [logClicked, setLogClicked] = useState(false);
-
   const [inputText, setInputText] = useState({
     reg: '',
     make: '',
     model: ''
   });
 
-
+  // SETS STATE TO APPROPRIATE INPUTTED VALUES
   const inputHandler = (event) => setInputText({...inputText, [event.target.name]: event.target.value,})
+
+  const onSearchSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!inputText.reg) {
+      alert('Please enter a valid registration number');
+      return;
+
+    } else {
+      console.log('SEARCH -> NEXT STEP')
+      setIntroPage(false)
+
+      // SEND DATA THROUGH TO BACKEND
+      // GET RID OF WELCOME PAGE
+      // RENDER MAIN PAGE
+
+    }
+  };
+
+
+
+
+
+
+    const onLogSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!inputText.reg || !inputText.make || !inputText.model) {
+      alert('Please enter your vehicle details');
+      return;
+
+    } else {
+      console.log('LOG -> NEXT STEP')
+      setIntroPage(false)
+      // SEND DATA THROUGH TO FAULT REGISTER PAGE
+      // REMOVE WELCOME PAGE
+      // RENDER FAULT REGISTER PAGE
+    }
+  };
+
+
+
+
+
 
 
   return (
+    // HANDLES WHICH DROP DOWN TO RENDER
     <div className='button-div'>
       <button
         type="button"
@@ -31,7 +77,7 @@ const WelcomeChoiceButton = ({ searchType }) => {
       {/*IF SEARCH FAULTS BUTTON IS CLICKED*/}
       {searchClicked && (
         <div className='input-box-div'>
-          <form className='input-box-form'>
+          <form className='input-box-form' onSubmit={onSearchSubmit}>
             <label>
               <input
                 type="text"
@@ -52,7 +98,7 @@ const WelcomeChoiceButton = ({ searchType }) => {
       {/*IF REGISTER FAULT BUTTON IS CLICKED*/}
       {logClicked && (
         <div>
-          <form className='input-box-form'>
+          <form className='input-box-form' onSubmit={onLogSubmit}>
             <label>Registration
               <input
                 type="text"
@@ -101,12 +147,12 @@ const WelcomeChoiceButton = ({ searchType }) => {
 
 export default WelcomeChoiceButton;
 
-{
+// {
   /*<Text>Previous searches:</Text>
       {previousSearches.map((element) => (
         <Text key={element.id}>{element.reg}</Text>
         ))}*/
-}
+// }
 
 // <form onSubmit={this.handleSubmit}>        <label>
 //     Name:

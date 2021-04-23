@@ -1,0 +1,21 @@
+.columns-container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
+
+.col {
+
+}
+
+.left-col {
+  flex-grow: 1
+}
+
+.middle-col {
+  flex-grow: 3
+}
+
+.right-col {
+  flex-grow: 2
+}
