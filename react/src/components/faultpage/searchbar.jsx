@@ -8,7 +8,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <form className="input-box-form" onSubmit={(event) => onSearchSubmit(inputText, event)}>
+      <form className="search-input-box-form" onSubmit={(event) => onSearchSubmit(inputText, event)}>
         <label>
           <input
             type="text"

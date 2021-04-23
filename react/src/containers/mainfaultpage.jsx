@@ -20,7 +20,7 @@ const MainFaultPageContainer = () => {
       <LeftSidebar />
       {!isLoading ? (
         <div className='placeholder'>
-          <FaultListContainer allFaults={allFaults} />
+          <FaultListContainer isLoading={isLoading} allFaults={allFaults} />
           <RightDataDisplay />
         </div>
       ) : (

@@ -14,14 +14,6 @@ const fetchRequest = (url) => {
     });
 };
 
-// SORTS FAULTS BY HIGHEST RATING FIRST
-export const sorter = (allFaultsArray) => {
-    const sorted = allFaultsArray.map((vehicle) => {
-      vehicle.faults = vehicle.faults.sort((a, b) => b.rating - a.rating)
-      return vehicle
-    })
-    return sorted;
-  }
 
 
 
@@ -42,6 +34,16 @@ export const sorter = (allFaultsArray) => {
 
 // };
 
+// ################## HELPER FUNCTIONS ##################
+
+// SORTS FAULTS BY HIGHEST RATING FIRST
+export const sorter = (allFaultsArray) => {
+    const sorted = allFaultsArray.map((vehicle) => {
+      vehicle.faults = vehicle.faults.sort((a, b) => b.rating - a.rating)
+      return vehicle
+    })
+    return sorted;
+  }
 
 
 // REG SUBMIT HANDLER

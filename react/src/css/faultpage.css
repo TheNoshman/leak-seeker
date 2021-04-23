@@ -20,10 +20,24 @@
   flex-grow: 3;
 }
 
-/*FAULT LIST ITME*/
+/*MAKE MODEL ABOVE LIST*/
+
+.search-and-make-model {
+  display: flex;
+  flex-direction: column;
+  /*REMOVE THIS MARGIN FOR DEPLOYMENT*/
+  margin-bottom: 50px;
+}
+
+.make-model-div {
+  display: flex;
+
+}
+
+/*FAULT LIST ITEM*/
 .entire-container {
   display: flex;
-  height: 5rem;
+  height: auto;
 }
 
 .counter-section {
