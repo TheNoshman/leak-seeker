@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 const mongoose = require('./model.js');
 
@@ -15,9 +14,29 @@ const vehicleData = new mongoose.Schema({
     type: 'String',
     required: true,
   },
-  faults: {
-    type: ['Mixed'],
-  },
+  faults: [{
+    summary: {
+      type: 'String',
+    },
+    description: {
+      type: 'String',
+    },
+    year: {
+      type: 'Number',
+    },
+    area: {
+      type: 'String',
+    },
+    priceToFix: {
+      type: 'Number',
+    },
+    faultLogged: {
+      type: 'Number',
+    },
+    rating: {
+      type: 'Number',
+    },
+  }]
 });
 
 // API MOCK REG SEARCH RESULT SCHEMA
@@ -32,7 +51,6 @@ const regToModel = new mongoose.Schema({
     type: String,
   },
 });
-
 
 const mongooseRegModel = mongoose.model(regCollection, regToModel);
 const mongooseVehicleModel = mongoose.model(vehCollection, vehicleData);

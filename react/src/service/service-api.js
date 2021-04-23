@@ -8,10 +8,24 @@ const fetchRequest = (url) => {
   return fetch(`${localURL}${url}`)
     .then((result) => (result.status <= 400 ? result : Promise.reject(result)))
     .then((result) => result.json())
+    .then((result) => sorter(result))
         .catch((err) => {
       console.log(`${err.message}`);
     });
 };
+
+// SORTS FAULTS BY HIGHEST RATING FIRST
+export const sorter = (allFaultsArray) => {
+    const sorted = allFaultsArray.map((vehicle) => {
+      vehicle.faults = vehicle.faults.sort((a, b) => b.rating - a.rating)
+      return vehicle
+    })
+    return sorted;
+  }
+
+
+
+
 
 // // POST REQUEST
 // export const createEvent = (url, event) => {
@@ -27,22 +41,6 @@ const fetchRequest = (url) => {
 //     .catch((err) => console.error(err));
 
 // };
-
-
-
-export const sorter = (listOfEvents) => {
-    console.log('before sorter = ', listOfEvents)
-    const filtered = listOfEvents.filter((event) => Date.parse(event.date) > Date.now()
-    );
-    console.log('filtered in sorter = ', filtered)
-
-    const sorted = filtered.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
-    console.log('after sorted in sorter = ', sorted)
-    return sorted;
-  }
-
-
-
 
 
 

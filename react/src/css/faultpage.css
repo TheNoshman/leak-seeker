@@ -1,4 +1,3 @@
-
 /*MAIN FAULT PAGE*/
 .columns-container {
   display: flex;
@@ -7,21 +6,19 @@
 }
 
 .col {
-
 }
 
 .left-col {
-  flex-grow: 1
+  flex-grow: 1;
 }
 
 .middle-col {
-  flex-grow: 9
+  flex-grow: 9;
 }
 
 .right-col {
-  flex-grow: 3
+  flex-grow: 3;
 }
-
 
 /*FAULT LIST ITME*/
 .entire-container {
@@ -34,7 +31,11 @@
 }
 
 .main-fault-section {
-width: 90%
+  width: 83%;
+}
+
+.right-fault-section {
+  width: 7%;
 }
 
 .placeholder {
