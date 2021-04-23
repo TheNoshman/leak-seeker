@@ -7,9 +7,9 @@ import { getAllFaults } from '../service/service-api';
 
 const MainFaultPageContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
-
   const [allFaults, setAllFaults] = useState([]);
 
+  // GRABS FAULTS FROM DATABASE
   useEffect(() => {
   getAllFaults().then((faults) => setAllFaults(faults))
   .then(() => setIsLoading(false))
