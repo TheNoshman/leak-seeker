@@ -3,29 +3,32 @@ import { useState, useEffect } from 'react';
 import FaultListContainer from './faultlistcontainer';
 import LeftSidebar from '../components/faultpage/leftsidebar';
 import RightDataDisplay from '../components/faultpage/rightdatadisplay';
-import { getAllFaults } from '../service/service-api';
+import { getAllFaults, getFaultsByReg } from '../service/service-api';
 
-const MainFaultPageContainer = () => {
+const MainFaultPageContainer = ({searchedReg}) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [allFaults, setAllFaults] = useState([]);
+  const [allFaultsObject, setAllFaults] = useState([]);
+
+
 
   // GRABS FAULTS FROM DATABASE
   useEffect(() => {
-  getAllFaults().then((faults) => setAllFaults(faults))
-  .then(() => setIsLoading(false))
-  }, []);
+    getFaultsByReg(searchedReg)
+    .then((fault) => setAllFaults([fault]))
+    .then(() => setIsLoading(false))
+  }, [searchedReg]);
 
   return (
     <div className="columns-container">
       <LeftSidebar />
-      {!isLoading ? (
+      {!isLoading && allFaultsObject.length > 0 ? (
         <div className='placeholder'>
-          <FaultListContainer isLoading={isLoading} allFaults={allFaults} />
+          <FaultListContainer isLoading={isLoading} allFaultsObject={allFaultsObject} />
           <RightDataDisplay />
         </div>
       ) : (
         <div className='placeholder'>
-          <>Loading...</>
+          <>No faults found</>
         </div>
       )}
     </div>

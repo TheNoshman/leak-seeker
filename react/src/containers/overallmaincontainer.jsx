@@ -6,13 +6,14 @@ import { useState } from 'react'
 const OverallMainContainer = () => {
 
   const [introPage, setIntroPage] = useState(true);
+  const [searchedReg, setSearchedReg] = useState('');
 
   return (
       <div className='mainpage'>
-      {introPage ?
-        <WelcomeContainer setIntroPage={setIntroPage}/>
+      {introPage && !searchedReg ?
+        <WelcomeContainer setIntroPage={setIntroPage} setSearchedReg={setSearchedReg}/>
         :
-        <MainFaultPageContainer />
+        <MainFaultPageContainer searchedReg={searchedReg}/>
       }
       </div>
   )

@@ -1,11 +1,13 @@
 import SearchBar from '../components/faultpage/searchbar';
 import FaultItem from '../components/faultpage/faultitem';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 // MAPS EACH FAULT TO A FAULT ITEM COMPONENT
-const FaultListContainer = ({ isLoading, allFaults }) => {
+const FaultListContainer = ({ isLoading, allFaultsObject }) => {
 
-  const faultsArray = allFaults.map((faultArray) =>
+  console.log('allFaultsObject =', allFaultsObject)
+
+  const faultsArray = allFaultsObject.map((faultArray) =>
     faultArray.faults.map((fault, index) => (
       <FaultItem
         key={faultArray._id + index}
@@ -22,15 +24,16 @@ const FaultListContainer = ({ isLoading, allFaults }) => {
 
 
 
+
     // RENDERS ALL FAULTS IN FAULT LIST
     return (
       <div className="middle-col col">
         <div className="search-and-make-model">
           <SearchBar />
-          {!isLoading && allFaults[0] &&
+          {!isLoading && allFaultsObject[0] &&
           <div className="make-model-div">
-            <p>Make: {allFaults[0].make}</p>
-            <p>Model: {allFaults[0].model}</p>
+            <p>Make: {allFaultsObject[0].make}</p>
+            <p>Model: {allFaultsObject[0].model}</p>
           </div>
           }
         </div>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../css/welcomepage.css';
 
-const WelcomeChoiceButton = ({searchType, setIntroPage} ) => {
+const WelcomeChoiceButton = ({searchType, setIntroPage, setSearchedReg} ) => {
 
   // THESE STATES TRACK WHICH DROP DOWN TO SHOW
   const [searchClicked, setSearchClicked] = useState(false);
@@ -23,7 +23,8 @@ const WelcomeChoiceButton = ({searchType, setIntroPage} ) => {
       return;
 
     } else {
-      console.log('SEARCH -> NEXT STEP')
+      console.log('SEARCH -> NEXT STEP', inputText.reg)
+      setSearchedReg(inputText.reg)
       setIntroPage(false)
 
       // SEND DATA THROUGH TO BACKEND

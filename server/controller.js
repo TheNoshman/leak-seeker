@@ -21,13 +21,13 @@ const getFunction = async function (req, res) {
 // THIS WILL BE THE MAIN GET REQUEST
 // GET SPECIFIC VEHCILE RECORDS FROM REG REQUEST
 const getFaultsFromReg = async function (req, res) {
-  // TO-DO -> FILTER BY YEAR
+  console.log(req.params.reg)
   try {
     const regToVehicle = await mongooseRegModel.findOne(
       { reg: req.params.reg },
-      (err, record) => {
-        console.log('regToVehicle = ', record);
-      }
+      // (err, record) => {
+        // console.log('regToVehicle = ', record);
+      // }
     );
 
     const vehicleRecord = await mongooseVehicleModel.findOne(
@@ -35,13 +35,13 @@ const getFaultsFromReg = async function (req, res) {
         make: regToVehicle.make,
         model: regToVehicle.model,
       },
-      (err, record) => {
-        console.log('vehicleRecord = ', record);
-      }
+      // (err, record) => {
+        // console.log('vehicleRecord = ', record);
+      // }
     );
 
     res.send(vehicleRecord);
-    console.log('get request success');
+    console.log('get request success, send data -> ', vehicleRecord);
   } catch (error) {
     console.error('Failed to get document from database, error -> ', error);
   }
