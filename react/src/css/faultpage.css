@@ -53,7 +53,7 @@
 }
 
 .fault-list-box {
-  flex-grow: 12;
+  flex-grow: 1;
   display: flex;
 }
 
@@ -62,10 +62,22 @@
 
 .log-fault-container {
   display: flex;
-  flex-grow: 12;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
 }
 
-.header {
+.log-forms-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+/*RIGHT HAND DATA*/
+
+.data-container {
   display: flex;
   width: 25rem;
+  flex-direction: column;
+
 }

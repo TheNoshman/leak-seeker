@@ -1,7 +1,7 @@
 import { Pie } from 'react-chartjs-2';
 import '../../css/faultpage.css';
 
-const RightDataDisplay = () => {
+const RightDataDisplay = ({allFaultsObject}) => {
 
   const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -35,10 +35,17 @@ const RightDataDisplay = () => {
 
 
   return (
-
-    <div className='header'>
-
-    <Pie data={data} />
+    <div className='data-container'>
+  {allFaultsObject.length > 0 &&
+    <div>
+      <Pie data={data} />
+      <div>
+        <p>Largest problem area: {allFaultsObject[0].faults[0].area}</p>
+        <p>EXTRA STATS</p>
+        <p>EXTRA STATS</p>
+      </div>
+      </div>
+  }
     </div>
 
 

@@ -4,9 +4,10 @@ import FaultListContainer from './faultlistcontainer';
 import LeftSidebar from '../components/faultpage/leftsidebar';
 import RightDataDisplay from '../components/faultpage/rightdatadisplay';
 import { getFaultsByReg } from '../service/service-api';
-import FaultLogEntry from '../components/faultpage/faultlogentry';
+import FaultLogEntry from '../components/faultpage/faultlogentry.jsx';
 
 const MainFaultPageContainer = ({ searchedReg, setSearchedReg }) => {
+
   const [isLoading, setIsLoading] = useState(false);
   const [allFaultsObject, setAllFaults] = useState([]);
 
@@ -37,7 +38,7 @@ const MainFaultPageContainer = ({ searchedReg, setSearchedReg }) => {
               allFaultsObject={allFaultsObject}
               setSearchedReg={setSearchedReg}
             />
-            <RightDataDisplay />
+            <RightDataDisplay allFaultsObject={allFaultsObject}/>
           </div>
         </div>
       );
