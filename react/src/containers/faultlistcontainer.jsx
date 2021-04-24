@@ -3,7 +3,6 @@ import FaultItem from '../components/faultpage/faultitem';
 
 // MAPS EACH FAULT TO A FAULT ITEM COMPONENT
 const FaultListContainer = ({ isLoading, allFaultsObject, setSearchedReg }) => {
-  console.log('allFaultsObject =', allFaultsObject);
 
   const faultsArray = allFaultsObject.map((faultArray) =>
     faultArray.faults.map((fault, index) => (

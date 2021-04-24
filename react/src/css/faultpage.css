@@ -9,7 +9,7 @@
 }
 
 .left-col {
-  flex-grow: 1;
+  width: 15rem;
 }
 
 .middle-col {
@@ -55,4 +55,12 @@
 .placeholder {
   flex-grow: 12;
   display: flex;
+}
+
+
+/*LOG FAULT COMPONENT*/
+
+.log-fault-container {
+  display: flex;
+  flex-grow: 12;
 }
