@@ -10,28 +10,23 @@ const fetchRequest = (url) => {
     .then((result) => (result.status <= 400 ? result : Promise.reject(result)))
     .then((result) => result.json())
     .then((result) => sorter(result))
-        .catch((err) => {
+    .catch((err) => {
       console.log(`${err.message}`);
     });
 };
 
 const getRegFaultsRequest = (url) => {
-  console.log('FECTH URL -> ', url)
+  console.log('FECTH URL -> ', url);
   return fetch(`${localURL}${url}`)
     .then((result) => (result.status <= 400 ? result : Promise.reject(result)))
     .then((result) => result.json())
     .then((result) => sorter(result))
-        .catch((err) => {
+    .catch((err) => {
       console.log(`${err.message}`);
     });
 };
 
-
-
-
-
-
-// // POST REQUEST
+// // POST REQUEST - TO-DO
 // export const createEvent = (url, event) => {
 //   return fetch(`${localURL}${url}`, {
 //     method: 'POST',
@@ -50,26 +45,24 @@ const getRegFaultsRequest = (url) => {
 
 // SORTS FAULTS BY HIGHEST RATING FIRST
 export const sorter = (allFaultsObject) => {
-    const sorted = allFaultsObject.faults.sort((a, b) => b.rating - a.rating)
-    allFaultsObject.faults = sorted;
-    return allFaultsObject;
-  }
-
+  const sorted = allFaultsObject.faults.sort((a, b) => b.rating - a.rating);
+  allFaultsObject.faults = sorted;
+  return allFaultsObject;
+};
 
 // REG SUBMIT HANDLER
 export const onSearchSubmit = async (inputText, event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    if (!inputText) {
-      alert('Please enter a valid registration number');
-      return;
-    } else {
-      console.log('SEARCH -> NEXT STEP + INPUT IS = ', inputText);
-      // setIntroPage(false)
+  if (!inputText) {
+    alert('Please enter a valid registration number');
+    return;
+  } else {
+    console.log('SEARCH -> NEXT STEP + INPUT IS = ', inputText);
+    // setIntroPage(false)
 
-      // SEND DATA THROUGH TO BACKEND
-      // GET RID OF WELCOME PAGE
-      // RENDER MAIN PAGE
-    }
-  };
-
+    // SEND DATA THROUGH TO BACKEND
+    // GET RID OF WELCOME PAGE
+    // RENDER MAIN PAGE
+  }
+};
