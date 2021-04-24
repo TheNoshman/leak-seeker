@@ -52,7 +52,7 @@
   width: 7%;
 }
 
-.placeholder {
+.fault-list-box {
   flex-grow: 12;
   display: flex;
 }
@@ -63,4 +63,9 @@
 .log-fault-container {
   display: flex;
   flex-grow: 12;
+}
+
+.header {
+  display: flex;
+  width: 25rem;
 }

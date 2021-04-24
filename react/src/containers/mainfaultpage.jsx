@@ -31,7 +31,7 @@ const MainFaultPageContainer = ({ searchedReg, setSearchedReg }) => {
       return (
         <div className="columns-container">
           <LeftSidebar setLinkType={setLinkType} />
-          <div className="placeholder">
+          <div className="fault-list-box">
             <FaultListContainer
               isLoading={isLoading}
               allFaultsObject={allFaultsObject}
