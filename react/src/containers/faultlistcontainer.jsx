@@ -2,7 +2,7 @@ import SearchBar from '../components/faultpage/searchbar';
 import FaultItem from '../components/faultpage/faultitem';
 
 // MAPS EACH FAULT TO A FAULT ITEM COMPONENT
-const FaultListContainer = ({ isLoading, allFaultsObject }) => {
+const FaultListContainer = ({ isLoading, allFaultsObject, setSearchedReg }) => {
   console.log('allFaultsObject =', allFaultsObject);
 
   const faultsArray = allFaultsObject.map((faultArray) =>
@@ -24,7 +24,7 @@ const FaultListContainer = ({ isLoading, allFaultsObject }) => {
   return (
     <div className="middle-col col">
       <div className="search-and-make-model">
-        <SearchBar />
+        <SearchBar setSearchedReg={setSearchedReg}/>
         {!isLoading && allFaultsObject[0] && (
           <div className="make-model-div">
             <p>Make: {allFaultsObject[0].make}</p>

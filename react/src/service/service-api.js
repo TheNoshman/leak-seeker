@@ -2,6 +2,7 @@ const localURL = 'http://localhost:3001/';
 
 export const getAllFaults = () => fetchRequest(`getallfaults`);
 export const getFaultsByReg = (reg) => getRegFaultsRequest(`search/${reg}`);
+
 // export const postNewEvent = (event) => createEvent(`events`, event);
 
 // // GET REQUEST
@@ -16,7 +17,6 @@ const fetchRequest = (url) => {
 };
 
 const getRegFaultsRequest = (url) => {
-  console.log('FECTH URL -> ', url);
   return fetch(`${localURL}${url}`)
     .then((result) => (result.status <= 400 ? result : Promise.reject(result)))
     .then((result) => result.json())
@@ -50,19 +50,3 @@ export const sorter = (allFaultsObject) => {
   return allFaultsObject;
 };
 
-// REG SUBMIT HANDLER
-export const onSearchSubmit = async (inputText, event) => {
-  event.preventDefault();
-
-  if (!inputText) {
-    alert('Please enter a valid registration number');
-    return;
-  } else {
-    console.log('SEARCH -> NEXT STEP + INPUT IS = ', inputText);
-    // setIntroPage(false)
-
-    // SEND DATA THROUGH TO BACKEND
-    // GET RID OF WELCOME PAGE
-    // RENDER MAIN PAGE
-  }
-};

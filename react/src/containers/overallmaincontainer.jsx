@@ -15,7 +15,7 @@ const OverallMainContainer = () => {
           setSearchedReg={setSearchedReg}
         />
       ) : (
-        <MainFaultPageContainer searchedReg={searchedReg} />
+        <MainFaultPageContainer searchedReg={searchedReg} setSearchedReg={setSearchedReg} />
       )}
     </div>
   );

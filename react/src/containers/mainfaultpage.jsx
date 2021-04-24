@@ -5,7 +5,7 @@ import LeftSidebar from '../components/faultpage/leftsidebar';
 import RightDataDisplay from '../components/faultpage/rightdatadisplay';
 import { getFaultsByReg } from '../service/service-api';
 
-const MainFaultPageContainer = ({ searchedReg }) => {
+const MainFaultPageContainer = ({ searchedReg, setSearchedReg }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [allFaultsObject, setAllFaults] = useState([]);
 
@@ -24,6 +24,7 @@ const MainFaultPageContainer = ({ searchedReg }) => {
           <FaultListContainer
             isLoading={isLoading}
             allFaultsObject={allFaultsObject}
+            setSearchedReg={setSearchedReg}
           />
           <RightDataDisplay />
         </div>
