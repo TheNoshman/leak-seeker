@@ -1,6 +1,11 @@
 import '../../css/faultpage.css';
 import { useState, useCallback } from 'react';
 
+import img1 from '../../images/img1.jpg'
+import img2 from '../../images/img2.jpg'
+import img3 from '../../images/img3.jpg'
+import img4 from '../../images/img4.jpg'
+
 import ImageViewer from 'react-simple-image-viewer';
 
 const FaultItem = ({
@@ -21,11 +26,13 @@ const FaultItem = ({
   //   console.log(upOrDown)
   // }
 
+  console.log(typeof rust1)
+
   const images = [
-    'http://placeimg.com/1200/800/nature',
-    'http://placeimg.com/800/1200/nature',
-    'http://placeimg.com/1920/1080/nature',
-    'http://placeimg.com/1500/500/nature',
+   img1,
+   img2,
+   img3,
+   img4
   ];
 
   const openImageViewer = useCallback((index) => {
@@ -59,11 +66,11 @@ const FaultItem = ({
             <div className="image-section">
               {images.map((src, index) => (
                 <img
+                  className='image-thumbnail'
                   src={src}
                   onClick={() => openImageViewer(index)}
-                  width="300"
+                  width="200px"
                   key={index}
-                  style={{ margin: '2px' }}
                   alt=""
                 />
               ))}

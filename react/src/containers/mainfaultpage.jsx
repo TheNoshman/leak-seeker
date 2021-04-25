@@ -25,7 +25,7 @@ const MainFaultPageContainer = ({ searchedReg, setSearchedReg }) => {
       return (
       <div className="columns-container">
         <LeftSidebar setLinkType={setLinkType} linkType={linkType}/>
-        <FaultLogEntry />;
+        <FaultLogEntry setLinkType={setLinkType} setSearchedReg={setSearchedReg}/>;
       </div>
       )
     case 'fault-display':
@@ -42,27 +42,16 @@ const MainFaultPageContainer = ({ searchedReg, setSearchedReg }) => {
           </div>
         </div>
       );
+    case 'about':
+      return (
+        <div className="columns-container">
+        <LeftSidebar setLinkType={setLinkType} linkType={linkType}/>
+          <p>ABOUT PAGE</p>
+
+        </div>
+      );
     default: return <p>DEFAULT</p>
   }
 };
-
-//   return (
-//     <div className="columns-container">
-
-//       {!isLoading && allFaultsObject.length > 0 && !logFault ? (
-//         <div className="placeholder">
-//           <FaultListContainer
-//             isLoading={isLoading}
-//             allFaultsObject={allFaultsObject}
-//             setSearchedReg={setSearchedReg}
-//           />
-//           <RightDataDisplay />
-//         </div>
-//       ) : (
-//         <FaultLogEntry />
-//       )}
-//     </div>
-//   );
-// };
 
 export default MainFaultPageContainer;

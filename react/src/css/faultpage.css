@@ -63,6 +63,20 @@
   display: flex;
 }
 
+.expanded-text {
+  flex-grow: 1
+}
+
+.image-section {
+  width: 420px;
+  text-align: center;
+}
+
+.image-thumbnail {
+  margin: 2px;
+  border-radius: 25px;
+}
+
 
 /*LOG FAULT COMPONENT*/
 

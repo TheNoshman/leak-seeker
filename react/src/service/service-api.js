@@ -2,6 +2,8 @@ const localURL = 'http://localhost:3001/';
 
 export const getAllFaults = () => fetchRequest(`getallfaults`);
 export const getFaultsByReg = (reg) => getRegFaultsRequest(`search/${reg}`);
+export const saveFaultToDatabase = (faultObj) => postFaultToDatabase(`addfault`, faultObj);
+
 
 // export const postNewEvent = (event) => createEvent(`events`, event);
 
@@ -26,20 +28,21 @@ const getRegFaultsRequest = (url) => {
     });
 };
 
-// // POST REQUEST - TO-DO
-// export const createEvent = (url, event) => {
-//   return fetch(`${localURL}${url}`, {
-//     method: 'POST',
-//     body: JSON.stringify({ event }),
-//     headers: {
-//       'content-type': 'application/json',
-//       accept: 'application/json',
-//     },
-//   })
-//     .then((result) => result.json())
-//     .catch((err) => console.error(err));
+// POST REQUEST -
+const postFaultToDatabase = (url, faultObj) => {
+  console.log('inside post, faultob -> ', faultObj)
+  return fetch(`${localURL}${url}`, {
+    method: 'POST',
+    body: JSON.stringify(faultObj),
+    headers: {
+      'content-type': 'application/json',
+      accept: 'application/json',
+    },
+  })
+    .then((result) => result.json())
+    .catch((err) => console.error(err));
 
-// };
+};
 
 // ################## HELPER FUNCTIONS ##################
 

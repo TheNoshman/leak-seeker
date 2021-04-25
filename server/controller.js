@@ -51,6 +51,7 @@ const getFaultsFromReg = async function (req, res) {
 // TO-DO -> ADD RESPONSES WITH INTERPOLATION TO ADVISE WHAT HAS BEEN DONE
 const addFault = async function (req, res) {
   let requestBody = req.body;
+  console.log(requestBody)
   let veh = false;
 
   // IF VEHICLE MAKE & MODEL EXISTS, ADD NEW FAULTS TO EXISTING RECORD
