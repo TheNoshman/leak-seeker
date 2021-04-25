@@ -57,6 +57,12 @@
   display: flex;
 }
 
+/*FAULT EXPAND ITEMS*/
+
+.expanded-container {
+  display: flex;
+}
+
 
 /*LOG FAULT COMPONENT*/
 
