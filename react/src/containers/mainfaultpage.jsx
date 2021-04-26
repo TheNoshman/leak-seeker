@@ -38,7 +38,9 @@ const MainFaultPageContainer = ({ searchedReg, setSearchedReg, setIntroPage }) =
               allFaultsObject={allFaultsObject}
               setSearchedReg={setSearchedReg}
             />
+            {allFaultsObject.length > 0 &&
             <RightDataDisplay allFaultsObject={allFaultsObject}/>
+            }
           </div>
         </div>
       );

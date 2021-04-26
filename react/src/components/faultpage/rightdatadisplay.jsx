@@ -1,9 +1,24 @@
 import { Doughnut } from 'react-chartjs-2';
 import '../../css/faultpage.css';
+import {averager} from '../../service/service-api'
 
 const RightDataDisplay = ({ allFaultsObject }) => {
+
+  const faultsByPrice = allFaultsObject[0].faults.map((el) => el.priceToFix)
+  const faultsByArea = () => allFaultsObject[0].faults.map((el) => el.area)
+  const faultsByYear = () => allFaultsObject[0].faults.map((el) => el.year)
+
+  const price = averager(faultsByPrice)
+  // const areas = averager(faultsByArea)
+  // const years = averager(faultsByYear)
+
+  console.log('PRICES ',price)
+
+
+
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green'],
+    labels: ['£10-100', '£100-£300', '£300-500', '£500 +'],
+
     datasets: [
       {
         label: 'Problem Areas',
@@ -36,8 +51,8 @@ const RightDataDisplay = ({ allFaultsObject }) => {
           />
           <div>
             <p>Largest problem area: {allFaultsObject[0].faults[0].area}</p>
-            <p>EXTRA STATS</p>
-            <p>EXTRA STATS</p>
+            <p>AVERAGE FIX PRICE</p>
+            <p>MOST COMMON AREA FOR PROBLEM</p>
           </div>
         </div>
       )}

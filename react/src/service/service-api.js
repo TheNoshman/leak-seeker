@@ -53,3 +53,25 @@ export const sorter = (allFaultsObject) => {
   return allFaultsObject;
 };
 
+// DATA AVERAGER FOR PIE CHART
+export const averager = (faults) => {
+    const arr = Array(4).fill(0)
+    faults.forEach((el) => {
+
+      switch (true) {
+        case el < 100:
+        arr[0]++
+        break
+        case el < 300:
+        arr[1]++
+        break
+        case el < 500:
+        arr[2]++
+        break
+        default: arr[3]++
+      }
+    }
+      )
+    return arr
+  }
+
