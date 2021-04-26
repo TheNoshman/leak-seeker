@@ -44,8 +44,27 @@ const FaultItem = ({
     setIsViewerOpen(false);
   };
 
+
+
+  let setBorder = () => {
+
+    switch (true) {
+      case rating < 10 :
+      return `entire-container col glass green`
+      break
+      case rating < 50 :
+      return `entire-container col glass orange`
+      break
+      case rating < 100 :
+      return `entire-container col glass red`
+      break
+      default:
+      return `entire-container col glass`
+    }
+  }
+
   return (
-    <div className="entire-container col glass">
+    <div className={setBorder()}>
       <div className="counter-section">
         <div><i class="fas fa-arrow-up fa-lg" ></i></div>
         <div>
@@ -105,11 +124,16 @@ const FaultItem = ({
 
 
       <div className="right-fault-section">
-      {expand ? <i class="fas fa-arrow-circle-up fa-3x"></i> : <i class="fas fa-arrow-circle-down fa-3x"></i>
+      {expand ?
+        <i
+        class="fas fa-arrow-circle-up arrow fa-3x"
+        onClick={() => setExpand(!expand)}></i>
+        :
+        <i
+        class="fas fa-arrow-circle-down arrow fa-3x"
+        onClick={() => setExpand(!expand)}></i>
       }
-        <button type="button" onClick={() => setExpand(!expand)}>
-          Expand
-        </button>
+
       </div>
     </div>
   );

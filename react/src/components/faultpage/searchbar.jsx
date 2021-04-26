@@ -25,12 +25,13 @@ const SearchBar = ({setSearchedReg}) => {
       <form className="search-input-box-form" onSubmit={(event) => onSearchSubmit(event)}>
         <label>
           <input
+            className='fault-search-input'
             type="text"
             value={inputText}
             placeholder="Enter a registration number..."
             onChange={(event) => inputHandler(event)}
           />
-          <input type="submit" value="Submit"/>
+          <input className='sub-btn' type="submit" value="Search"/>
         </label>
       </form>
     </div>

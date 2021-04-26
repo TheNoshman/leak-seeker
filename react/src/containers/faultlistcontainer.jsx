@@ -26,8 +26,11 @@ const FaultListContainer = ({ isLoading, allFaultsObject, setSearchedReg }) => {
         <SearchBar setSearchedReg={setSearchedReg}/>
         {!isLoading && allFaultsObject[0] && (
           <div className="make-model-div">
-            <p>Make: {allFaultsObject[0].make}</p>
-            <p>Model: {allFaultsObject[0].model}</p>
+            <p>Current search:</p>
+            <div className='m-m'>
+            <span>Make: <h3>{allFaultsObject[0].make}</h3></span>
+            <span>Model: <h3>{allFaultsObject[0].model}</h3></span>
+            </div>
           </div>
         )}
       </div>

@@ -12,8 +12,12 @@
 
 
 .left-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 15rem;
-
+  height: 20rem;
+  padding: 1rem;
 
 }
 
@@ -25,17 +29,57 @@
   flex-grow: 3;
 }
 
+/*SEARCH BAR*/
+
+.fault-search-input {
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+  border-radius: 2rem;
+  padding: 0.3rem;
+  outline: none;
+}
+
+.sub-btn {
+  height: 2rem;
+  line-height: 2rem;
+  width: 5rem;
+  margin: .5rem 1rem;
+  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.5)
+  );
+  border: 0.1em solid #ffffff;
+  border-radius: 1em;
+  text-decoration: none;
+  color: #000000;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+
+
 /*MAKE MODEL ABOVE LIST*/
 
 .search-and-make-model {
   display: flex;
-  flex-direction: column;
-  /*REMOVE THIS MARGIN FOR DEPLOYMENT*/
-  margin-bottom: 50px;
+  justify-content: space-between;
+
 }
 
 .make-model-div {
   display: flex;
+  flex-direction: column;
+  padding: 0 7rem 0 0;
+  height: 100%;
+  width: 20rem;
+
+}
+
+.m-m {
+  display: flex;
+  justify-content: space-between;
 
 }
 
@@ -52,7 +96,7 @@
   display: flex;
   min-height: 5rem;
   height: auto;
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 .counter-section {
@@ -64,7 +108,7 @@
 }
 
 .main-fault-section {
-  width: 83%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -78,6 +122,19 @@
   flex-grow: 1;
   display: flex;
 }
+
+.green {
+  border: solid green 2px;
+}
+
+.orange {
+  border: solid orange 2px;
+}
+
+.red {
+  border: solid red 2px;
+}
+
 
 
 
@@ -106,6 +163,17 @@
   border-radius: 25px;
 }
 
+.right-fault-section {
+  display: flex;
+  width: 5rem;
+  padding: 1rem 0.5rem;
+  justify-content: center;
+
+}
+
+.arrow {
+  cursor: pointer;
+}
 
 
 
@@ -145,5 +213,5 @@
 /*LEFT NAV BAR*/
 
 .left-btn-div {
-  margin: 1rem 0;
+
 }

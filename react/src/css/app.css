@@ -1,5 +1,5 @@
 * {
-  border: solid red 1px;
+  /*border: solid red 1px;*/
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,16 +11,16 @@
   display: flex;
   flex-flow: column;
   /*GLASS SETTINGS*/
-  background: linear-gradient(to right top,  #bdf0ff, #96c9ff);
+  background: linear-gradient(to right bottom,  #96c9ff, #bdf0ff);
 }
 
 /*ANY CONTAINER TO HAVE GLASS PROPERTIES*/
 .glass {
   background: white;
-  background: linear-gradient(to right bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
   border-radius: 1rem;
   z-index: 2;
-  backdrop-filter: blur(1rem);
+  backdrop-filter: blur(0.5rem);
 
 
 }
@@ -95,7 +95,7 @@
 
 .circle1, .circle2, .circle3 {
   background: white;
-  background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.1));
   position: absolute;
   border-radius: 50%;
   z-index: 1;
@@ -110,13 +110,13 @@
 .circle2 {
   height: 30rem;
   width: 30rem;
-  bottom: 20%;
-  left: 3%;
+  bottom: 10%;
+  left: 0;
 }
 
 .circle3 {
   bottom: 5%;
-  right: 3%;
+  right: 0;
   height: 20rem;
   width: 20rem;
 }

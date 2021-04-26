@@ -79,18 +79,19 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
 
             <p>Your reg:</p>
             <p className="input-output">{inputText.reg}</p>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" className='sub-btn'/>
           </form>
         </div>
       )}
 
       {/*IF REGISTER FAULT BUTTON IS CLICKED*/}
       {logClicked && (
-        <div>
+        <div className="input-box-div glass">
           <form className="input-box-form" onSubmit={onLogSubmit}>
-            <label>
-              Registration
+            <label className='cen'>
+              Registration:
               <input
+              className='input-text-box'
                 type="text"
                 name="reg"
                 value={inputText.reg}
@@ -99,9 +100,10 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
               />
             </label>
 
-            <label>
-              Make/ Brand
+            <label className='cen'>
+              Make/ Brand:
               <input
+              className='input-text-box'
                 type="text"
                 name="make"
                 value={inputText.make}
@@ -110,18 +112,9 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
               />
             </label>
 
-            <label>
-              Model
-              <input
-                type="text"
-                name="model"
-                value={inputText.model}
-                placeholder="Enter the model..."
-                onChange={(event) => inputHandler(event)}
-              />
-            </label>
 
-            <input type="submit" value="Submit" />
+
+            <input type="submit" value="Submit" className='sub-btn'/>
           </form>
         </div>
       )}
