@@ -64,7 +64,7 @@ const FaultLogEntry = ({setLinkType, setSearchedReg}) => {
 
     <div className="log-fault-container">
     {!formCompleted ?
-      <form className="log-forms-container" onSubmit={onSearchSubmit}>
+      <form className="log-forms-container glass" onSubmit={onSearchSubmit}>
         <label>
           Reg:
           <input
@@ -159,8 +159,14 @@ const FaultLogEntry = ({setLinkType, setSearchedReg}) => {
           />
         </label>
 
+      <label>Upload images of fault:
+</label>
+  <input type="file" id="myFile" name="filename"></input>
+
+
         <input type="submit" value="Submit" />
         <input type="reset" />
+
       </form>
     :
     <div>

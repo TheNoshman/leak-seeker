@@ -9,13 +9,13 @@ const OverallMainContainer = () => {
 
   return (
     <div className="mainpage">
-      {introPage && !searchedReg ? (
+      {introPage ? (
         <WelcomeContainer
           setIntroPage={setIntroPage}
           setSearchedReg={setSearchedReg}
         />
       ) : (
-        <MainFaultPageContainer searchedReg={searchedReg} setSearchedReg={setSearchedReg} />
+        <MainFaultPageContainer searchedReg={searchedReg} setSearchedReg={setSearchedReg} setIntroPage={setIntroPage}/>
       )}
     </div>
   );

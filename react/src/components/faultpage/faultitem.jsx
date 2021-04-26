@@ -46,7 +46,7 @@ const FaultItem = ({
   };
 
   return (
-    <div className="entire-container">
+    <div className="entire-container col glass">
       <div className="counter-section">
         <p>{rating}</p>
       </div>

@@ -9,4 +9,63 @@
   height: 100vh;
   display: flex;
   flex-flow: column;
+  /*GLASS SETTINGS*/
+  background: linear-gradient(to right top,  #65dfc9, #6cdbdb);
 }
+
+/*ANY CONTAINER TO HAVE GLASS PROPERTIES*/
+.glass {
+  background: white;
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.1));
+  border-radius: 1rem;
+  z-index: 2;
+  backdrop-filter: blur(1rem);
+
+
+}
+
+/*NAVBAR*/
+.navbar-cont {
+  display: flex;
+  justify-content: space-between;
+  height: 3.5rem;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+}
+
+.navbar-right-item {
+  margin: 1rem;
+}
+
+.navbar-logo-img {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+
+
+/*CIRCLES*/
+
+.circle1, .circle2 {
+  background: white;
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
+  height: 20rem;
+  width: 20rem;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.circle1 {
+  top: 5%;
+  right: 15%;
+}
+
+.circle2 {
+  bottom: 5%;
+  left: 10%;
+}
+

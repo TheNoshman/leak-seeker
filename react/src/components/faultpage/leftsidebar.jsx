@@ -1,12 +1,19 @@
 
 import '../../css/faultpage.css';
 
-const LeftSidebar = ({ setLinkType, linkType}) => {
+const LeftSidebar = ({ setLinkType, linkType, setIntroPage}) => {
 
 
 
   return (
-    <div className='left-col col'>
+    <div className='left-col col glass'>
+
+    <div>
+      <button onClick={(() => setIntroPage(true))
+      }>Home</button>
+      </div>
+
+
       <div>
         <button onClick={(() => {
           if (linkType === 'log') {

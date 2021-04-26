@@ -3,7 +3,7 @@ import WelcomeChoiceButton from '../components/welcomechoicebutton';
 
 const WelcomeContainer = ({ setIntroPage, setSearchedReg }) => {
   return (
-    <div className="welcome-container">
+    <div className="welcome-container glass">
       <h1>Welcome</h1>
       <h3>Please choose an option:</h3>
       <div className="button-container">

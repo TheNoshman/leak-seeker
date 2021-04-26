@@ -26,7 +26,7 @@ const RightDataDisplay = ({ allFaultsObject }) => {
   };
 
   return (
-    <div className="data-container">
+    <div className="data-container col glass">
       {allFaultsObject.length > 0 && (
         <div>
           <Doughnut

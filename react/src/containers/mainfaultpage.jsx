@@ -6,7 +6,7 @@ import RightDataDisplay from '../components/faultpage/rightdatadisplay';
 import { getFaultsByReg } from '../service/service-api';
 import FaultLogEntry from '../components/faultpage/faultlogentry.jsx';
 
-const MainFaultPageContainer = ({ searchedReg, setSearchedReg }) => {
+const MainFaultPageContainer = ({ searchedReg, setSearchedReg, setIntroPage }) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [allFaultsObject, setAllFaults] = useState([]);
@@ -23,15 +23,15 @@ const MainFaultPageContainer = ({ searchedReg, setSearchedReg }) => {
   switch (linkType) {
     case 'log':
       return (
-      <div className="columns-container">
-        <LeftSidebar setLinkType={setLinkType} linkType={linkType}/>
-        <FaultLogEntry setLinkType={setLinkType} setSearchedReg={setSearchedReg}/>;
+      <div className="columns-container glass">
+        <LeftSidebar setLinkType={setLinkType} linkType={linkType} setIntroPage={setIntroPage}/>
+        <FaultLogEntry setLinkType={setLinkType} setSearchedReg={setSearchedReg}/>
       </div>
       )
     case 'fault-display':
       return (
-        <div className="columns-container">
-          <LeftSidebar setLinkType={setLinkType} />
+        <div className="columns-container glass">
+          <LeftSidebar setLinkType={setLinkType} setIntroPage={setIntroPage}/>
           <div className="fault-list-box">
             <FaultListContainer
               isLoading={isLoading}
@@ -44,9 +44,25 @@ const MainFaultPageContainer = ({ searchedReg, setSearchedReg }) => {
       );
     case 'about':
       return (
-        <div className="columns-container">
-        <LeftSidebar setLinkType={setLinkType} linkType={linkType}/>
+        <div className="columns-container glass">
+        <LeftSidebar setLinkType={setLinkType} linkType={linkType} setIntroPage={setIntroPage}/>
           <p>ABOUT PAGE</p>
+
+        </div>
+      );
+    case 'contact':
+      return (
+        <div className="columns-container glass">
+        <LeftSidebar setLinkType={setLinkType} linkType={linkType} setIntroPage={setIntroPage}/>
+          <p>CONTACT</p>
+
+        </div>
+      );
+      case 'report':
+      return (
+        <div className="columns-container glass">
+        <LeftSidebar setLinkType={setLinkType} linkType={linkType} setIntroPage={setIntroPage}/>
+          <p>REPORT</p>
 
         </div>
       );
