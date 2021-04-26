@@ -39,18 +39,35 @@
 
 }
 
+
+/*FAULT LIST CONTAINER*/
+
+.all-faults-container-div {
+  margin: 0
+}
+
+
 /*FAULT LIST ITEM*/
 .entire-container {
   display: flex;
+  min-height: 5rem;
   height: auto;
+  margin: 1rem;
 }
 
 .counter-section {
+  display: flex;
+  flex-direction: column;
   width: 10%;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .main-fault-section {
   width: 83%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .right-fault-section {
@@ -62,14 +79,21 @@
   display: flex;
 }
 
+
+
 /*FAULT EXPAND ITEMS*/
 
 .expanded-container {
   display: flex;
+  width: 100%
+
 }
 
 .expanded-text {
-  flex-grow: 1
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .image-section {
@@ -81,6 +105,10 @@
   margin: 2px;
   border-radius: 25px;
 }
+
+
+
+
 
 
 /*LOG FAULT COMPONENT*/
@@ -98,6 +126,11 @@
 
 }
 
+
+
+
+
+
 /*RIGHT HAND DATA*/
 
 .data-container {
@@ -105,4 +138,12 @@
   width: 25rem;
   flex-direction: column;
 
+}
+
+
+
+/*LEFT NAV BAR*/
+
+.left-btn-div {
+  margin: 1rem 0;
 }

@@ -50,8 +50,9 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
   return (
     // HANDLES WHICH DROP DOWN TO RENDER
     <div className="button-div">
-      <button
-        type="button"
+      <a
+        className="welcome-choice-btn"
+        href="#"
         onClick={() => {
           searchType === 'Search Faults'
             ? setSearchClicked(!searchClicked)
@@ -59,14 +60,15 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
         }}
       >
         {searchType}
-      </button>
+      </a>
 
       {/*IF SEARCH FAULTS BUTTON IS CLICKED*/}
       {searchClicked && (
-        <div className="input-box-div">
+        <div className="input-box-div glass">
           <form className="input-box-form" onSubmit={onSearchSubmit}>
             <label>
               <input
+                className='input-text-box'
                 type="text"
                 name="reg"
                 value={inputText.reg}
@@ -128,16 +130,3 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
 };
 
 export default WelcomeChoiceButton;
-
-// {
-/*<Text>Previous searches:</Text>
-      {previousSearches.map((element) => (
-        <Text key={element.id}>{element.reg}</Text>
-        ))}*/
-// }
-
-// <form onSubmit={this.handleSubmit}>        <label>
-//     Name:
-//     <input type="text" value={this.state.value} onChange={this.handleChange} />        </label>
-//   <input type="submit" value="Submit" />
-// </form>

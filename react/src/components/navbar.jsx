@@ -6,13 +6,13 @@ const Navbar = () => {
     <div className='navbar-cont glass'>
       <section className='navbar-left'>
       <img className='navbar-logo-img' src={logo} alt='brand logo'/>
-        <p>LEAKSEEKER NAME LOGO</p>
+        <h1>LeakSeeker</h1>
       </section>
       <section className='navbar-right'>
-         <a className='navbar-right-item' href='x'>LINK1</a>
-         <a className='navbar-right-item' href='x'>LINK2</a>
-         <a className='navbar-right-item' href='x'>LINK3</a>
-         <button className='navbar-right-item' type="button">Login</button>
+         <a className='navbar-right-item' href='x'>Home</a>
+         <a className='navbar-right-item' href='x'>About</a>
+         <a className='navbar-right-item' href='x'>Contact</a>
+         <button className='navbar-right-item login-btn' type="button">Login</button>
       </section>
     </div>
   )

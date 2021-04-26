@@ -2,7 +2,8 @@
   border: solid red 1px;
   box-sizing: border-box;
   margin: 0;
-  padding: 0
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .App {
@@ -10,7 +11,7 @@
   display: flex;
   flex-flow: column;
   /*GLASS SETTINGS*/
-  background: linear-gradient(to right top,  #65dfc9, #6cdbdb);
+  background: linear-gradient(to right top,  #bdf0ff, #96c9ff);
 }
 
 /*ANY CONTAINER TO HAVE GLASS PROPERTIES*/
@@ -24,20 +25,42 @@
 
 }
 
+
+
+
 /*NAVBAR*/
 .navbar-cont {
   display: flex;
   justify-content: space-between;
   height: 3.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
 }
 
 .navbar-left,
 .navbar-right {
   display: flex;
+  align-items: center;
 }
 
 .navbar-right-item {
-  margin: 1rem;
+  display: inline-block;
+  height: 2rem;
+  line-height: 2rem;
+  width: 5rem;
+  margin: .5rem 1rem;
+  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border: 0.1em solid #ffffff;
+  border-radius: 0.12em;
+  text-decoration: none;
+  color: #000000;
+  text-align: center;
+
 }
 
 .navbar-logo-img {
@@ -45,27 +68,56 @@
   width: 3.5rem;
 }
 
+.welcome-logo {
+  width: 7rem;
+  height: 7rem;
+}
+
+.login-btn {
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 1)
+  );
+  border: 0.1em solid #000000;
+}
+
+
+
+
+
+
+
+
 
 
 /*CIRCLES*/
 
-.circle1, .circle2 {
+.circle1, .circle2, .circle3 {
   background: white;
   background: linear-gradient(to right bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.3));
-  height: 20rem;
-  width: 20rem;
   position: absolute;
   border-radius: 50%;
   z-index: 1;
 }
 
 .circle1 {
-  top: 5%;
-  right: 15%;
+  right: 30%;
+  height: 15rem;
+  width: 15rem;
 }
 
 .circle2 {
+  height: 30rem;
+  width: 30rem;
+  bottom: 20%;
+  left: 3%;
+}
+
+.circle3 {
   bottom: 5%;
-  left: 10%;
+  right: 3%;
+  height: 20rem;
+  width: 20rem;
 }
 

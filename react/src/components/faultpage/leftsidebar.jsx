@@ -1,58 +1,80 @@
-
 import '../../css/faultpage.css';
 
-const LeftSidebar = ({ setLinkType, linkType, setIntroPage}) => {
-
-
-
+const LeftSidebar = ({ setLinkType, linkType, setIntroPage }) => {
   return (
-    <div className='left-col col glass'>
-
-    <div>
-      <button onClick={(() => setIntroPage(true))
-      }>Home</button>
+    <div className="left-col col">
+      <div className='left-btn-div'>
+        <a
+          className="welcome-choice-btn glass"
+          href="#"
+          onClick={() => setIntroPage(true)}
+        >
+          Home
+        </a>
       </div>
 
-
-      <div>
-        <button onClick={(() => {
-          if (linkType === 'log') {
-            setLinkType('fault-display')
-          } else {
-            setLinkType('log')
-          }
-        })}>Log a fault</button>
+      <div className='left-btn-div'>
+        <a
+          className="welcome-choice-btn glass"
+          href="#"
+          onClick={() => {
+            if (linkType === 'log') {
+              setLinkType('fault-display');
+            } else {
+              setLinkType('log');
+            }
+          }}
+        >
+          Log a fault
+        </a>
       </div>
-      <div>
-      <button onClick={(() => {
-          if (linkType === 'about') {
-            setLinkType('fault-display')
-          } else {
-            setLinkType('about')
-          }
-        })}>About</button>
+      <div className='left-btn-div'>
+        <a
+          className="welcome-choice-btn glass"
+          href="#"
+          onClick={() => {
+            if (linkType === 'about') {
+              setLinkType('fault-display');
+            } else {
+              setLinkType('about');
+            }
+          }}
+        >
+          About
+        </a>
       </div>
-      <div>
-      <button onClick={(() => {
-          if (linkType === 'contact') {
-            setLinkType('fault-display')
-          } else {
-            setLinkType('contact')
-          }
-        })}>Contact Us</button>
+      <div className='left-btn-div'>
+        <a
+          className="welcome-choice-btn glass"
+          href="#"
+          onClick={() => {
+            if (linkType === 'contact') {
+              setLinkType('fault-display');
+            } else {
+              setLinkType('contact');
+            }
+          }}
+        >
+          Contact Us
+        </a>
       </div>
-      <div>
-      <button onClick={(() => {
-          if (linkType === 'report') {
-            setLinkType('fault-display')
-          } else {
-            setLinkType('report')
-          }
-        })}>Report a problem</button>
+      <div className='left-btn-div'>
+        <a
+          className="welcome-choice-btn glass"
+          href="#"
+          onClick={() => {
+            if (linkType === 'report') {
+              setLinkType('fault-display');
+            } else {
+              setLinkType('report');
+            }
+          }}
+        >
+          Report a problem
+        </a>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default LeftSidebar
+export default LeftSidebar;

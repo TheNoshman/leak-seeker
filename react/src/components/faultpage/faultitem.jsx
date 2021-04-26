@@ -26,7 +26,6 @@ const FaultItem = ({
   //   console.log(upOrDown)
   // }
 
-  console.log(typeof rust1)
 
   const images = [
    img1,
@@ -48,15 +47,32 @@ const FaultItem = ({
   return (
     <div className="entire-container col glass">
       <div className="counter-section">
+        <div><i class="fas fa-arrow-up fa-lg" ></i></div>
+        <div>
         <p>{rating}</p>
+        </div>
+        <div><i class="fas fa-arrow-down fa-lg"></i></div>
       </div>
 
-      <div className="main-fault-section">
+
+
+
+
+        {!expand ? (
+
+          <div className="main-fault-section">
         <p>Summary: {summary}</p>
         <p>Description: {description}</p>
-        {expand && (
-          <div className="expanded-container">
+        </div>)
+
+        :
+
+        (
+
+          <div className="expanded-container ">
             <div className="expanded-text">
+            <p>Summary: {summary}</p>
+        <p>Description: {description}</p>
               <p>Area of fault: {area}</p>
               <p>Build year: {year}</p>
               <p>Price to fix: £{priceToFix}</p>
@@ -84,10 +100,13 @@ const FaultItem = ({
               )}
             </div>
           </div>
+
         )}
-      </div>
+
 
       <div className="right-fault-section">
+      {expand ? <i class="fas fa-arrow-circle-up fa-3x"></i> : <i class="fas fa-arrow-circle-down fa-3x"></i>
+      }
         <button type="button" onClick={() => setExpand(!expand)}>
           Expand
         </button>

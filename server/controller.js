@@ -11,7 +11,7 @@ const getFunction = async function (req, res) {
     });
     // find one doc from collection
     // const vehicleRecord = await mongooseVehicleModel.findOne({ name: 'test' }, (err, docs) => {console.log('findOne = ', docs)})
-    res.send(allDocs);
+    res.status(200).send(allDocs);
     console.log('get request success');
   } catch (error) {
     console.error('Failed to get document from database, error -> ', error);
@@ -40,7 +40,7 @@ const getFaultsFromReg = async function (req, res) {
       // }
     );
 
-    res.send(vehicleRecord);
+    res.status(200).send(vehicleRecord);
     console.log('get request success, send data -> ', vehicleRecord);
   } catch (error) {
     console.error('Failed to get document from database, error -> ', error);
@@ -80,7 +80,7 @@ const addFault = async function (req, res) {
     });
     await faultRecord.save();
     // EDIT THIS
-    res.send(`Saved POST request to database`);
+    res.status(200).send(`Saved POST request to database`);
   }
 };
 

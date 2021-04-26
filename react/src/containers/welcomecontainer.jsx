@@ -1,10 +1,12 @@
 import '../css/welcomepage.css';
 import WelcomeChoiceButton from '../components/welcomechoicebutton';
 
+import logo from '../images/logo.png'
+
 const WelcomeContainer = ({ setIntroPage, setSearchedReg }) => {
   return (
     <div className="welcome-container glass">
-      <h1>Welcome</h1>
+      <h1>Welcome to Leak Seeker</h1>
       <h3>Please choose an option:</h3>
       <div className="button-container">
         <WelcomeChoiceButton
@@ -12,6 +14,9 @@ const WelcomeContainer = ({ setIntroPage, setSearchedReg }) => {
           setIntroPage={setIntroPage}
           setSearchedReg={setSearchedReg}
         />
+        <div>
+        <img className='welcome-logo' src={logo} alt='brand logo'></img>
+        </div>
         <WelcomeChoiceButton
           searchType="Register Fault"
           setIntroPage={setIntroPage}
