@@ -54,7 +54,7 @@ export const sorter = (allFaultsObject) => {
 };
 
 // DATA AVERAGER FOR PIE CHART
-export const averager = (faults) => {
+export const priceAverager = (faults) => {
     const arr = Array(4).fill(0)
     faults.forEach((el) => {
 
@@ -62,10 +62,10 @@ export const averager = (faults) => {
         case el < 100:
         arr[0]++
         break
-        case el < 300:
+        case el < 500:
         arr[1]++
         break
-        case el < 500:
+        case el < 1000:
         arr[2]++
         break
         default: arr[3]++
@@ -75,3 +75,45 @@ export const averager = (faults) => {
     return arr
   }
 
+export const yearAverager = (faults) => {
+    const arr = Array(4).fill(0)
+    console.log(faults)
+    faults.forEach((el) => {
+
+      switch (true) {
+        case el < 1990:
+        arr[0]++
+        break
+        case el < 2000:
+        arr[1]++
+        break
+        case el < 2010:
+        arr[2]++
+        break
+        default: arr[3]++
+      }
+    }
+      )
+    return arr
+  }
+
+  export const areaAverager = (faults) => {
+    const arr = Array(4).fill(0)
+    faults.forEach((el) => {
+
+      switch (true) {
+        case el === 'Interior':
+        arr[0]++
+        break
+        case el === 'Bodywork':
+        arr[1]++
+        break
+        case el === 'Engine':
+        arr[2]++
+        break
+        default: arr[3]++
+      }
+    }
+      )
+    return arr
+  }

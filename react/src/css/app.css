@@ -93,7 +93,7 @@
 
 /*CIRCLES*/
 
-.circle1, .circle2, .circle3 {
+.circle1, .circle2, .circle3, .circle4 {
   background: white;
   background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.1));
   position: absolute;
@@ -121,3 +121,9 @@
   width: 20rem;
 }
 
+.circle4 {
+  bottom: 15%;
+  right: 50%;
+  height: 10rem;
+  width: 10rem;
+}
