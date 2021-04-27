@@ -13,7 +13,7 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
 
   // SETS STATE TO APPROPRIATE INPUTTED VALUES
   const inputHandler = (event) =>
-    setInputText({ ...inputText, [event.target.name]: event.target.value });
+    setInputText({ ...inputText, [event.target.name]: event.target.value.toUpperCase() });
 
   const onSearchSubmit = async (event) => {
     event.preventDefault();

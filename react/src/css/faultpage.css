@@ -3,7 +3,7 @@
   display: flex;
   height: 85vh;
   width: 90vw;
-
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.19);
 }
 
 .col {
@@ -23,6 +23,7 @@
 
 .middle-col {
   flex-grow: 9;
+    overflow: auto;
 }
 
 .right-col {
@@ -31,11 +32,17 @@
 
 /*SEARCH BAR*/
 
+.search-bar-cont {
+  display: flex;
+justify-content: center;
+}
+
 .fault-search-input {
   background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
   border-radius: 2rem;
-  padding: 0.3rem;
+  padding: 0.3rem 0.3rem 0.3rem 0.7rem;
   outline: none;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2),0 2px 4px 0 rgba(0,0,0,0.19);
 }
 
 .sub-btn {
@@ -55,6 +62,17 @@
   color: #000000;
   text-align: center;
   cursor: pointer;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2),0 2px 4px 0 rgba(0,0,0,0.19);
+
+}
+
+.sub-btn:hover {
+  color: #000000;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.8)
+  );
 }
 
 
@@ -74,7 +92,6 @@
   padding: 0 7rem 0 0;
   height: 100%;
   width: 20rem;
-
 }
 
 .m-m {
@@ -88,6 +105,7 @@
 
 .all-faults-container-div {
   margin: 0
+
 }
 
 
@@ -97,6 +115,7 @@
   min-height: 5rem;
   height: auto;
   margin: 1rem 0;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.19);
 }
 
 .counter-section {
@@ -133,6 +152,22 @@
 
 .red {
   border: solid red 2px;
+}
+
+.icn {
+  cursor: pointer;
+}
+
+.icn-green {
+  color: green;
+}
+
+.icn-orange {
+  color: orange;
+}
+
+.icn-red {
+  color: red;
 }
 
 
@@ -191,9 +226,40 @@
 .log-forms-container {
   display: flex;
   flex-direction: column;
-
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.19);
+  width: 80%;
+  height: 90%;
+  padding: 0 2rem;
+  justify-content: space-between;
+  overflow: auto;
 }
 
+.log-label {
+  margin: 0.5rem;
+}
+
+.logbtn {
+  width: 20%;
+}
+
+.file {
+  margin: 0 0 0 1rem;
+}
+
+.fault-logged-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 30%;
+  width: 30%;
+  text-align: center;
+  padding: 1rem;
+}
+
+.done-btn {
+  width: 50%
+}
 
 
 

@@ -1,4 +1,5 @@
 import '../../css/faultpage.css';
+import moment from 'moment';
 import { useState, useCallback } from 'react';
 
 import img1 from '../../images/img1.jpg'
@@ -19,12 +20,16 @@ const FaultItem = ({
 }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
-
   const [expand, setExpand] = useState(false);
+  const [faultRating, setFaultRating] = useState(rating)
 
-  // const handleRatingChange = (upOrDown) => {
-  //   console.log(upOrDown)
-  // }
+  const handleRatingChange = (upOrDown) => {
+     if (upOrDown === 'up') {
+       setFaultRating(faultRating + 1)
+     } else {
+       setFaultRating(faultRating - 1)
+     }
+  }
 
 
   const images = [
@@ -49,7 +54,7 @@ const FaultItem = ({
   let setBorder = () => {
 
     switch (true) {
-      case rating < 10 :
+      case faultRating < 10 :
       return `entire-container col glass green`
       break
       case rating < 50 :
@@ -63,14 +68,46 @@ const FaultItem = ({
     }
   }
 
+
+
+
+
+  let setRatingColour = () => {
+
+    switch (true) {
+      case faultRating < 10 :
+      return `icn-green`
+      break
+      case rating < 50 :
+      return `icn-orange`
+      break
+      case rating < 100 :
+      return `icn-red`
+      break
+      default:
+      return `icn-green`
+    }
+  }
+
+
+
+
+
   return (
     <div className={setBorder()}>
       <div className="counter-section">
-        <div><i class="fas fa-arrow-up fa-lg" ></i></div>
+        <div><i
+        class="fas fa-arrow-up fa-lg icn"
+        onClick={() => handleRatingChange('up')}
+         ></i></div>
+
         <div>
-        <p>{rating}</p>
+        <p className={setRatingColour()}>{faultRating}</p>
         </div>
-        <div><i class="fas fa-arrow-down fa-lg"></i></div>
+        <div><i
+          class="fas fa-arrow-down fa-lg icn"
+          onClick={() => handleRatingChange('down')}>
+          </i></div>
       </div>
 
 
@@ -95,7 +132,7 @@ const FaultItem = ({
               <p>Area of fault: {area}</p>
               <p>Build year: {year}</p>
               <p>Price to fix: £{priceToFix}</p>
-              <p>Reported on: {faultLogged}</p>
+              <p>Reported on: {moment(faultLogged).format('MMMM Do YYYY, h:mm:ss a')}</p>
             </div>
 
             <div className="image-section">

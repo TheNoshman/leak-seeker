@@ -22,10 +22,10 @@ const FaultListContainer = ({ isLoading, allFaultsObject, setSearchedReg }) => {
   // RENDERS ALL FAULTS IN FAULT LIST
   return (
     <div className="middle-col col">
-      <div className="search-and-make-model">
+      <div className="search-and-make-model ">
         <SearchBar setSearchedReg={setSearchedReg}/>
         {!isLoading && allFaultsObject[0] && (
-          <div className="make-model-div">
+          <div className="make-model-div ">
             <p>Current search:</p>
             <div className='m-m'>
             <span>Make: <h3>{allFaultsObject[0].make}</h3></span>

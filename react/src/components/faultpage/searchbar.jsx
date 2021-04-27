@@ -21,7 +21,7 @@ const SearchBar = ({setSearchedReg}) => {
 };
 
   return (
-    <div>
+    <div className='search-bar-cont'>
       <form className="search-input-box-form" onSubmit={(event) => onSearchSubmit(event)}>
         <label>
           <input

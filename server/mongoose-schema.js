@@ -31,7 +31,7 @@ const vehicleData = new mongoose.Schema({
       type: 'Number',
     },
     faultLogged: {
-      type: 'Number',
+      type: 'Date',
     },
     rating: {
       type: 'Number',

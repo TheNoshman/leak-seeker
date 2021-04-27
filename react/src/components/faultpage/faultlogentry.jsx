@@ -59,7 +59,7 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
         year: '',
         area: '',
         priceToFix: '',
-        faultLogged: Date.now(),
+        faultLogged: new Date(),
         rating: 0,
       });
     }
@@ -73,40 +73,45 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
     <div className="log-fault-container">
       {!formCompleted ? (
         <form className="log-forms-container glass" onSubmit={onSearchSubmit}>
-          <label>
+          <label className='log-label'>
             Reg:
+          </label>
             <input
+              className='fault-search-input'
               type="text"
               name="reg"
               value={newFaultObject.reg}
               placeholder="Enter your registration number..."
               onChange={(event) => inputHandler(event)}
             />
-          </label>
-          <label>
+          <label className='log-label'>
             Make:
+          </label>
             <input
+              className='fault-search-input'
               type="text"
               name="make"
               value={newFaultObject.make}
               placeholder="Enter the vehicle manufacturer..."
               onChange={(event) => inputHandler(event)}
             />
-          </label>
-          <label>
+          <label className='log-label'>
             Model:
+          </label>
             <input
+              className='fault-search-input'
               type="text"
               name="model"
               value={newFaultObject.model}
               placeholder="Enter the model of your vehicle..."
               onChange={(event) => inputHandler(event)}
             />
-          </label>
 
-          <label>
+          <label className='log-label'>
             Year:
+          </label>
             <input
+            className='fault-search-input'
               type="number"
               name="year"
               value={newFaultObject.year}
@@ -115,22 +120,24 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
               step="1"
               max="2021"
             ></input>
-          </label>
 
-          <label>
+          <label className='log-label'>
             Fault summary:
+          </label>
             <input
+              className='fault-search-input'
               type="text"
               name="summary"
               value={newFaultObject.summary}
               placeholder="What is the fault?"
               onChange={(event) => inputHandler(event)}
             />
-          </label>
 
-          <label>
+          <label className='log-label'>
             Area of fault:
+          </label>
             <select
+              className='fault-search-input'
               name="area"
               value={newFaultObject.area}
               onChange={(event) => inputHandler(event)}
@@ -140,11 +147,12 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
               <option value="engine">Engine</option>
               <option value="drivetrain">Drivetrain</option>
             </select>
-          </label>
 
-          <label>
+          <label className='log-label'>
             Cost to repair: £
+          </label>
             <input
+            className='fault-search-input'
               type="number"
               name="priceToFix"
               value={newFaultObject.priceToFix}
@@ -153,11 +161,12 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
               step="50"
               max="5000"
             ></input>
-          </label>
 
-          <label>
+          <label className='log-label'>
             Fault description:
+          </label>
             <textarea
+            className='fault-search-input'
               name="description"
               placeholder="Please enter a short description of the fault..."
               rows="4"
@@ -165,18 +174,18 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
               value={newFaultObject.description}
               onChange={(event) => inputHandler(event)}
             />
+
+          <label className='log-label'>Upload images of fault:
+          <input className='file' type="file" id="myFile" name="filename"></input>
           </label>
-
-          <label>Upload images of fault:</label>
-          <input type="file" id="myFile" name="filename"></input>
-
-          <input type="submit" value="Submit" />
-          <input type="reset" />
+          <input className='sub-btn logbtn' type="submit" value="Submit" />
+          <input className='sub-btn logbtn' type="reset" />
         </form>
       ) : (
-        <div>
-          <p>DONE</p>
-          <button onClick={() => backToFaults()}>Okay</button>
+        <div className='fault-logged-cont glass'>
+          <p>Thank you for submitting a new fault record.</p>
+          <p>Please click the button below to view the record</p>
+          <button className='sub-btn done-btn' onClick={() => backToFaults()}>View Record</button>
         </div>
       )}
     </div>
