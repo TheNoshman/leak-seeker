@@ -195,9 +195,6 @@
 }
 
 
-Doughnut {
-  border: none;
-}
 
 
 
@@ -207,9 +204,63 @@ Doughnut {
   display: flex;
   width: 25rem;
   flex-direction: column;
-
+  align-items: center;
+  text-align: center;
+  height: 40rem;
 }
 
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.icn {
+  display: inline-flex;
+  width: 2rem;
+  justify-content: center;
+  padding: 0 1.5rem;
+}
+
+.data-choice-btn {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  width: 80%;
+  margin: .5rem 1rem;
+  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border: 0.1em solid #ffffff;
+  border-radius: 0.12em;
+  text-decoration: none;
+  color: #000000;
+  text-align: left;
+  transition: 0.5s;
+}
+
+.data-choice-btn:hover {
+  color: #000000;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0.8)
+  );
+}
+
+
+.data-choice-btn:focus {
+  color: #000000;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 1)
+  );
+  border: 1px solid black;
+}
 
 
 /*LEFT NAV BAR*/

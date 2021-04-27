@@ -10,14 +10,14 @@
   height: 100vh;
   display: flex;
   flex-flow: column;
-  /*GLASS SETTINGS*/
+  /*MAIN BACKGROUND COLOUR*/
   background: linear-gradient(to right bottom,  #96c9ff, #bdf0ff);
 }
 
 /*ANY CONTAINER TO HAVE GLASS PROPERTIES*/
 .glass {
   background: white;
-  background: linear-gradient(to right bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+  background: linear-gradient(to right bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
   border-radius: 1rem;
   z-index: 2;
   backdrop-filter: blur(0.5rem);

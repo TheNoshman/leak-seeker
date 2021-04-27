@@ -29,7 +29,7 @@ a.welcome-choice-btn {
   text-decoration: none;
   color: #000000;
   text-align: center;
-  transition: 2s;
+  transition: 0.5s;
   width: 100%;
 }
 
@@ -41,6 +41,7 @@ a.welcome-choice-btn:hover {
     rgba(255, 255, 255, 0.4)
   );
 }
+
 a.welcome-choice-btn:focus {
   color: #000000;
   background: linear-gradient(
@@ -48,6 +49,7 @@ a.welcome-choice-btn:focus {
     rgba(255, 255, 255, 0.9),
     rgba(255, 255, 255, 0.4)
   );
+  border: 1px solid black;
 }
 
 
