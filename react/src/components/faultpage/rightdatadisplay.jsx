@@ -22,6 +22,8 @@ const RightDataDisplay = ({ allFaultsObject }) => {
 
   const [dataType, setDataType] = useState([areaStats, 'Problem area', areas]);
 
+  console.log('AREAS = ', areas)
+
   const data = {
     labels: dataType[0],
 
@@ -40,7 +42,7 @@ const RightDataDisplay = ({ allFaultsObject }) => {
     <div className="data-container col glass">
       {allFaultsObject.length > 0 && (
         <div>
-          <h2>{dataType[1]} Data</h2>
+          <h2>{dataType[1]} data</h2>
           <Doughnut data={data} width={400} height={400} />
           <div className="stats">
             <a

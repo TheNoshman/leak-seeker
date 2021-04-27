@@ -15,6 +15,7 @@ const FaultListContainer = ({ isLoading, allFaultsObject, setSearchedReg }) => {
         priceToFix={fault.priceToFix}
         faultLogged={fault.faultLogged}
         rating={fault.rating}
+        imageIndex={index}
       />
     ))
   );

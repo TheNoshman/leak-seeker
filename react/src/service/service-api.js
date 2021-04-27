@@ -102,13 +102,13 @@ export const yearAverager = (faults) => {
     faults.forEach((el) => {
 
       switch (true) {
-        case el === 'Interior':
+        case el === 'interior':
         arr[0]++
         break
-        case el === 'Bodywork':
+        case el === 'bodywork':
         arr[1]++
         break
-        case el === 'Engine':
+        case el === 'engine':
         arr[2]++
         break
         default: arr[3]++

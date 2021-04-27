@@ -2,10 +2,20 @@ import '../../css/faultpage.css';
 import moment from 'moment';
 import { useState, useCallback } from 'react';
 
-import img1 from '../../images/img1.jpg'
-import img2 from '../../images/img2.jpg'
-import img3 from '../../images/img3.jpg'
-import img4 from '../../images/img4.jpg'
+import img1 from '../../images/img1.jpg';
+import img2 from '../../images/img2.jpg';
+import img3 from '../../images/img3.jpg';
+import img4 from '../../images/img4.jpg';
+
+import img5 from '../../images/img5.jpg';
+import img6 from '../../images/img6.jpg';
+import img7 from '../../images/img7.jpg';
+import img8 from '../../images/img8.jpg';
+
+import img9 from '../../images/img9.jpg';
+import img10 from '../../images/img10.jpg';
+import img11 from '../../images/img11.jpg';
+import img12 from '../../images/img12.jpg';
 
 import ImageViewer from 'react-simple-image-viewer';
 
@@ -17,26 +27,25 @@ const FaultItem = ({
   priceToFix,
   faultLogged,
   rating,
+  imageIndex,
 }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [expand, setExpand] = useState(false);
-  const [faultRating, setFaultRating] = useState(rating)
+  const [faultRating, setFaultRating] = useState(rating);
 
   const handleRatingChange = (upOrDown) => {
-     if (upOrDown === 'up') {
-       setFaultRating(faultRating + 1)
-     } else {
-       setFaultRating(faultRating - 1)
-     }
-  }
-
+    if (upOrDown === 'up') {
+      setFaultRating(faultRating + 1);
+    } else {
+      setFaultRating(faultRating - 1);
+    }
+  };
 
   const images = [
-   img1,
-   img2,
-   img3,
-   img4
+    [img1, img2, img3, img4],
+    [img5, img6, img7, img8],
+    [img9, img10, img11, img12],
   ];
 
   const openImageViewer = useCallback((index) => {
@@ -49,46 +58,32 @@ const FaultItem = ({
     setIsViewerOpen(false);
   };
 
-
-
   let setBorder = () => {
-
     switch (true) {
-      case faultRating < 10 :
-      return `entire-container col glass green`
-      break
-      case rating < 50 :
-      return `entire-container col glass orange`
-      break
-      case rating < 100 :
-      return `entire-container col glass red`
-      break
+      case faultRating < 10:
+        return `entire-container col glass green`;
+        break
+      case faultRating < 50:
+        return `entire-container col glass orange`;
+        break
       default:
-      return `entire-container col glass`
+        return `entire-container col glass red`;
     }
-  }
-
-
-
+  };
 
 
   let setRatingColour = () => {
-
     switch (true) {
-      case faultRating < 10 :
-      return `icn-green`
-      break
-      case rating < 50 :
-      return `icn-orange`
-      break
-      case rating < 100 :
-      return `icn-red`
-      break
+      case faultRating < 10:
+        return `icn-green`;
+        break
+      case faultRating < 50:
+        return `icn-orange`;
+        break
       default:
-      return `icn-green`
+        return `icn-red`;
     }
-  }
-
+  };
 
 
 
@@ -96,81 +91,78 @@ const FaultItem = ({
   return (
     <div className={setBorder()}>
       <div className="counter-section">
-        <div><i
-        class="fas fa-arrow-up fa-lg icn"
-        onClick={() => handleRatingChange('up')}
-         ></i></div>
+        <div>
+          <i
+            class="fas fa-arrow-up fa-lg icn"
+            onClick={() => handleRatingChange('up')}
+          ></i>
+        </div>
 
         <div>
-        <p className={setRatingColour()}>{faultRating}</p>
+          <p className={setRatingColour()}>{faultRating}</p>
         </div>
-        <div><i
-          class="fas fa-arrow-down fa-lg icn"
-          onClick={() => handleRatingChange('down')}>
-          </i></div>
+        <div>
+          <i
+            class="fas fa-arrow-down fa-lg icn"
+            onClick={() => handleRatingChange('down')}
+          ></i>
+        </div>
       </div>
 
-
-
-
-
-        {!expand ? (
-
-          <div className="main-fault-section">
-        <p>Summary: {summary}</p>
-        <p>Description: {description}</p>
-        </div>)
-
-        :
-
-        (
-
-          <div className="expanded-container ">
-            <div className="expanded-text">
-            <p>Summary: {summary}</p>
-        <p>Description: {description}</p>
-              <p>Area of fault: {area}</p>
-              <p>Build year: {year}</p>
-              <p>Price to fix: £{priceToFix}</p>
-              <p>Reported on: {moment(faultLogged).format('MMMM Do YYYY, h:mm:ss a')}</p>
-            </div>
-
-            <div className="image-section">
-              {images.map((src, index) => (
-                <img
-                  className='image-thumbnail'
-                  src={src}
-                  onClick={() => openImageViewer(index)}
-                  width="200px"
-                  key={index}
-                  alt=""
-                />
-              ))}
-
-              {isViewerOpen && (
-                <ImageViewer
-                  src={images}
-                  currentIndex={currentImage}
-                  onClose={closeImageViewer}
-                />
-              )}
-            </div>
+      {!expand ? (
+        <div className="main-fault-section ">
+          <h4 className='fault-item-detail'>Summary: {summary}</h4>
+          <p className='fault-item-detail'>Price to fix: £{priceToFix}</p>
+        </div>
+      ) : (
+        <div className="expanded-container ">
+          <div className="expanded-text">
+            <p className='fault-item-detail'>Summary: {summary}</p>
+            <p className='fault-item-detail'>Price to fix: £{priceToFix}</p>
+            <p className='fault-item-detail'>Area of fault: {area}</p>
+            <p className='fault-item-detail'>Build year: {year}</p>
+            <p className='fault-item-detail'>Description: {description}</p>
+            <p className='fault-item-detail'>
+              Reported on:{' '}
+              {moment(faultLogged).format('MMMM Do YYYY, h:mm:ss a')}
+            </p>
           </div>
 
-        )}
+          <div className="image-section">
+            {images[imageIndex].map((src, index) => (
+              <img
+                className="image-thumbnail"
+                src={src}
+                onClick={() => openImageViewer(index)}
+                width="200px"
+                key={index}
+                alt=""
+              />
+            ))}
 
+            {isViewerOpen && (
+              <ImageViewer
+                src={images}
+                currentIndex={currentImage}
+                onClose={closeImageViewer}
+              />
+            )}
+          </div>
+        </div>
+      )}
 
       <div className="right-fault-section">
-      {expand ?
-        <i
-        class="fas fa-arrow-circle-up arrow fa-3x"
-        onClick={() => setExpand(!expand)}></i>
-        :
-        <i
-        class="fas fa-arrow-circle-down arrow fa-3x"
-        onClick={() => setExpand(!expand)}></i>
-      }
-
+        {expand ? (
+          <i
+            class="fas fa-arrow-circle-up arrow fa-3x"
+            onClick={() => setExpand(!expand)}
+          ></i>
+        ) : (
+          <i
+            class="fas fa-arrow-circle-down arrow fa-3x"
+            onClick={() => setExpand(!expand)}
+          ></i>
+        )}
       </div>
     </div>
   );

@@ -36,6 +36,7 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
           description: newFaultObject.description,
           priceToFix: newFaultObject.priceToFix,
           rating: newFaultObject.rating,
+          area: newFaultObject.area,
           year: newFaultObject.year,
           faultLogged: newFaultObject.faultLogged,
         },
@@ -185,7 +186,10 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
         <div className='fault-logged-cont glass'>
           <p>Thank you for submitting a new fault record.</p>
           <p>Please click the button below to view the record</p>
-          <button className='sub-btn done-btn' onClick={() => backToFaults()}>View Record</button>
+          <button className='sub-btn done-btn' onClick={() => {
+            backToFaults()
+            setFormCompleted(false)
+          }}>View Record</button>
         </div>
       )}
     </div>
