@@ -27,12 +27,29 @@ const RightDataDisplay = ({ allFaultsObject }) => {
   const data = {
     labels: dataType[0],
 
+
+
+
+
+
+
+
+
+
     datasets: [
       {
         label: dataType[1],
         data: dataType[2],
-        backgroundColor: ['#90e0ef', '#00b4d8', '#0077b6', '#03045e'],
-        borderColor: ['#90e0ef', '#00b4d8', '#0077b6', '#03045e'],
+        backgroundColor: ['rgba(75, 192, 192, 0.5)',
+        'rgba(54, 162, 235, 0.5)',
+        'rgba(255, 206, 86, 0.5)',
+
+        'rgba(255, 99, 132, 0.5)'],
+        borderColor: ['rgba(75, 192, 192, 0.5)',
+        'rgba(54, 162, 235, 0.5)',
+        'rgba(255, 206, 86, 0.5)',
+
+        'rgba(255, 99, 132, 0.5)'],
         borderWidth: 1,
       },
     ],
