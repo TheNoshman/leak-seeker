@@ -3,8 +3,6 @@ require('dotenv').config();
 
 const url = process.env.URL;
 
-
-
 mongoose.connect(
   url,
   {
