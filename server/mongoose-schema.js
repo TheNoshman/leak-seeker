@@ -1,8 +1,8 @@
 require('dotenv').config();
 const mongoose = require('./model.js');
 
-const vehCollection = process.env.VEHICLECOLLECTION;
-const regCollection = process.env.REGCOLLECTION;
+const vehCollection = process.env.VEHICLECOLLECTION || 'vehicle';
+const regCollection = process.env.REGCOLLECTION || 'reg';
 
 // FAULT RECORD SCHEMA
 const vehicleData = new mongoose.Schema({

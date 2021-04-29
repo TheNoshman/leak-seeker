@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const url = process.env.URL;
+const url = process.env.URL || 'mongodb://localhost:27017/leak-seeker';
 
 
 

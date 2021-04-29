@@ -6,6 +6,7 @@ import RightDataDisplay from '../components/faultpage/rightdatadisplay';
 import { getFaultsByReg } from '../service/service-api';
 import FaultLogEntry from '../components/faultpage/faultlogentry.jsx';
 
+
 const MainFaultPageContainer = ({ searchedReg, setSearchedReg, setIntroPage }) => {
 
   const [isLoading, setIsLoading] = useState(false);
@@ -13,11 +14,14 @@ const MainFaultPageContainer = ({ searchedReg, setSearchedReg, setIntroPage }) =
 
   const [linkType, setLinkType] = useState('fault-display');
 
+  const data = require('../dummy.json');
+
   // GRABS FAULTS FROM DATABASE
   useEffect(() => {
-    getFaultsByReg(searchedReg)
-      .then((fault) => setAllFaults([fault]))
-      .then(() => setIsLoading(false));
+    setAllFaults([data])
+    // getFaultsByReg(searchedReg)
+    //   .then((fault) => setAllFaults([fault]))
+    //   .then(() => setIsLoading(false));
   }, [searchedReg]);
 
   switch (linkType) {
