@@ -1,41 +1,37 @@
-import { useState } from 'react';
+import { useState } from 'react'
+/* global alert */
 
+const SearchBar = ({ setSearchedReg }) => {
+  const [inputText, setInputText] = useState('')
 
-const SearchBar = ({setSearchedReg}) => {
+  const inputHandler = (event) => setInputText(event.target.value)
 
-  const [inputText, setInputText] = useState('');
+  const onSearchSubmit = async (event) => {
+    event.preventDefault()
 
-  const inputHandler = (event) => setInputText(event.target.value);
-
-
- const onSearchSubmit = async (event) => {
-  event.preventDefault();
-
-  if (!inputText) {
-    alert('Please enter a valid registration number');
-    return;
-  } else {
-    setSearchedReg(inputText)
-
+    if (!inputText) {
+      alert('Please enter a valid registration number')
+    } else {
+      setSearchedReg(inputText)
+    }
   }
-};
 
   return (
     <div className='search-bar-cont'>
-      <form className="search-input-box-form" onSubmit={(event) => onSearchSubmit(event)}>
+      <form className='search-input-box-form' onSubmit={(event) => onSearchSubmit(event)}>
         <label>
           <input
             className='fault-search-input'
-            type="text"
+            type='text'
             value={inputText}
-            placeholder="Enter a registration number..."
+            placeholder='Enter a registration number...'
             onChange={(event) => inputHandler(event)}
           />
-          <input className='sub-btn' type="submit" value="Search"/>
+          <input className='sub-btn' type='submit' value='Search' />
         </label>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar
