@@ -1,30 +1,23 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from 'react'
 
-const ShowWelcomePageContext = React.createContext();
-const SwapPageContext = React.createContext();
-
-
+const ShowWelcomePageContext = React.createContext()
+const SwapPageContext = React.createContext()
 
 // CUSTOM HOOKS
-export function useWelcomePageContext() {
+export function useWelcomePageContext () {
   return useContext(ShowWelcomePageContext)
 }
 
-export function useSwapPageContext() {
+export function useSwapPageContext () {
   return useContext(SwapPageContext)
 }
 
+export function ShowWelcomePageProvider ({ children }) {
+  const [welcomeState, setWelcomeState] = useState(true)
 
-
-
-
-export function ShowWelcomePageProvider({ children }) {
-
-  const [welcomeState, setWelcomeState] = useState(true);
-
-  function swapPageFunction() {
+  function swapPageFunction () {
     console.log('INSIDE SWAP CON')
-    setWelcomeState(false);
+    setWelcomeState(false)
   }
 
   return (
@@ -33,5 +26,5 @@ export function ShowWelcomePageProvider({ children }) {
         {children}
       </SwapPageContext.Provider>
     </ShowWelcomePageContext.Provider>
-  );
+  )
 }

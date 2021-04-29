@@ -1,12 +1,12 @@
-import '../../css/faultpage.css';
+import '../../css/faultpage.css'
 
 const LeftSidebar = ({ setLinkType, linkType, setIntroPage }) => {
   return (
-    <div className="left-col col glass">
+    <div className='left-col col glass'>
       <div className='left-btn-div'>
         <a
-          className="welcome-choice-btn glass"
-          href="#"
+          className='welcome-choice-btn glass'
+          href='#'
           onClick={() => setIntroPage(true)}
         >
           Home
@@ -15,13 +15,13 @@ const LeftSidebar = ({ setLinkType, linkType, setIntroPage }) => {
 
       <div className='left-btn-div'>
         <a
-          className="welcome-choice-btn glass"
-          href="#"
+          className='welcome-choice-btn glass'
+          href='#'
           onClick={() => {
             if (linkType === 'log') {
-              setLinkType('fault-display');
+              setLinkType('fault-display')
             } else {
-              setLinkType('log');
+              setLinkType('log')
             }
           }}
         >
@@ -30,13 +30,13 @@ const LeftSidebar = ({ setLinkType, linkType, setIntroPage }) => {
       </div>
       <div className='left-btn-div'>
         <a
-          className="welcome-choice-btn glass"
-          href="#"
+          className='welcome-choice-btn glass'
+          href='#'
           onClick={() => {
             if (linkType === 'about') {
-              setLinkType('fault-display');
+              setLinkType('fault-display')
             } else {
-              setLinkType('about');
+              setLinkType('about')
             }
           }}
         >
@@ -45,13 +45,13 @@ const LeftSidebar = ({ setLinkType, linkType, setIntroPage }) => {
       </div>
       <div className='left-btn-div'>
         <a
-          className="welcome-choice-btn glass"
-          href="#"
+          className='welcome-choice-btn glass'
+          href='#'
           onClick={() => {
             if (linkType === 'contact') {
-              setLinkType('fault-display');
+              setLinkType('fault-display')
             } else {
-              setLinkType('contact');
+              setLinkType('contact')
             }
           }}
         >
@@ -60,13 +60,13 @@ const LeftSidebar = ({ setLinkType, linkType, setIntroPage }) => {
       </div>
       <div className='left-btn-div'>
         <a
-          className="welcome-choice-btn glass"
-          href="#"
+          className='welcome-choice-btn glass'
+          href='#'
           onClick={() => {
             if (linkType === 'report') {
-              setLinkType('fault-display');
+              setLinkType('fault-display')
             } else {
-              setLinkType('report');
+              setLinkType('report')
             }
           }}
         >
@@ -74,7 +74,7 @@ const LeftSidebar = ({ setLinkType, linkType, setIntroPage }) => {
         </a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LeftSidebar;
+export default LeftSidebar
