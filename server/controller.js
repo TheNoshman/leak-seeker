@@ -7,12 +7,10 @@ const { checkIfVehicleExists, checkIfRegExists } = require('./helpers')
 const getFunction = async function (req, res) {
   try {
     const allDocs = await MongooseVehicleModel.find()
-    // find one doc from collection
-    // const vehicleRecord = await MongooseVehicleModel.findOne({ name: 'test' }, (err, docs) => {console.log('findOne = ', docs)})
     res.status(200).send(allDocs)
-    console.log('get request success')
   } catch (error) {
     console.error('Failed to get document from database, error -> ', error)
+    res.sendStatus(500)
   }
 }
 
@@ -21,27 +19,19 @@ const getFunction = async function (req, res) {
 const getFaultsFromReg = async function (req, res) {
   console.log(req.params.reg)
   try {
-    const regToVehicle = await MongooseRegModel.findOne(
-      { reg: req.params.reg }
-      // (err, record) => {
-      // console.log('regToVehicle = ', record);
-      // }
-    )
-
+    const regToVehicle = await MongooseRegModel.findOne({ reg: req.params.reg })
     const vehicleRecord = await MongooseVehicleModel.findOne(
       {
         make: regToVehicle.make,
         model: regToVehicle.model
       }
-      // (err, record) => {
-      // console.log('vehicleRecord = ', record);
-      // }
     )
 
     res.status(200).send(vehicleRecord)
     console.log('get request success, send data -> ', vehicleRecord)
   } catch (error) {
     console.error('Failed to get document from database, error -> ', error)
+    res.sendStatus(404)
   }
 }
 
