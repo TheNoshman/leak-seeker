@@ -7,41 +7,29 @@ const { checkIfVehicleExists, checkIfRegExists } = require('./helpers')
 const getFunction = async function (req, res) {
   try {
     const allDocs = await MongooseVehicleModel.find()
-    // find one doc from collection
-    // const vehicleRecord = await MongooseVehicleModel.findOne({ name: 'test' }, (err, docs) => {console.log('findOne = ', docs)})
     res.status(200).send(allDocs)
-    console.log('get request success')
   } catch (error) {
     console.error('Failed to get document from database, error -> ', error)
+    res.sendStatus(500)
   }
 }
 
 // THIS WILL BE THE MAIN GET REQUEST
 // GET SPECIFIC VEHCILE RECORDS FROM REG REQUEST
 const getFaultsFromReg = async function (req, res) {
-  console.log(req.params.reg)
   try {
-    const regToVehicle = await MongooseRegModel.findOne(
-      { reg: req.params.reg }
-      // (err, record) => {
-      // console.log('regToVehicle = ', record);
-      // }
-    )
-
+    const regToVehicle = await MongooseRegModel.findOne({ reg: req.params.reg })
     const vehicleRecord = await MongooseVehicleModel.findOne(
       {
         make: regToVehicle.make,
         model: regToVehicle.model
       }
-      // (err, record) => {
-      // console.log('vehicleRecord = ', record);
-      // }
     )
 
     res.status(200).send(vehicleRecord)
-    console.log('get request success, send data -> ', vehicleRecord)
   } catch (error) {
     console.error('Failed to get document from database, error -> ', error)
+    res.sendStatus(404)
   }
 }
 
@@ -49,7 +37,6 @@ const getFaultsFromReg = async function (req, res) {
 // TO-DO -> ADD RESPONSES WITH INTERPOLATION TO ADVISE WHAT HAS BEEN DONE
 const addFault = async function (req, res) {
   const requestBody = req.body
-  console.log(requestBody.faults)
   let veh = false
 
   // IF VEHICLE MAKE & MODEL EXISTS, ADD NEW FAULTS TO EXISTING RECORD
@@ -58,6 +45,7 @@ const addFault = async function (req, res) {
     const record = await checkIfVehicleExists(requestBody)
     record.faults.push(...requestBody.faults)
     await record.save()
+    res.status(201).send(record)
   }
 
   // IF REG DOESNT EXIST IN DB, ADD REG + MAKE/ MODEL TO MOCK API COLLECTION DB
@@ -69,6 +57,7 @@ const addFault = async function (req, res) {
     })
     await regRecord.save()
   }
+
   // IF VEHICLE FAULT RECORD DOESNT EXIST, CREATE IT
   if (veh === false) {
     const faultRecord = new MongooseVehicleModel({
@@ -77,8 +66,9 @@ const addFault = async function (req, res) {
       faults: requestBody.faults
     })
     await faultRecord.save()
-    // EDIT THIS
-    res.status(200).send('Saved POST request to database')
+
+    // EDIT THIS - now it returns the saved entry
+    res.status(201).send(faultRecord)
   }
 }
 
