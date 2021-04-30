@@ -89,11 +89,11 @@ const FaultItem = ({
 
 
   return (
-    <div className={setBorder()}>
+    <div className={setBorder()} data-testid="FaultItem">
       <div className="counter-section">
         <div>
           <i
-            class="fas fa-arrow-up fa-lg icn"
+            className="fas fa-arrow-up fa-lg icn"
             onClick={() => handleRatingChange('up')}
           ></i>
         </div>
@@ -103,7 +103,7 @@ const FaultItem = ({
         </div>
         <div>
           <i
-            class="fas fa-arrow-down fa-lg icn"
+            className="fas fa-arrow-down fa-lg icn"
             onClick={() => handleRatingChange('down')}
           ></i>
         </div>
@@ -154,12 +154,12 @@ const FaultItem = ({
       <div className="right-fault-section">
         {expand ? (
           <i
-            class="fas fa-arrow-circle-up arrow fa-3x"
+            className="fas fa-arrow-circle-up arrow fa-3x"
             onClick={() => setExpand(!expand)}
           ></i>
         ) : (
           <i
-            class="fas fa-arrow-circle-down arrow fa-3x"
+            className="fas fa-arrow-circle-down arrow fa-3x"
             onClick={() => setExpand(!expand)}
           ></i>
         )}
