@@ -5,7 +5,7 @@ import logo from '../images/logo.png'
 
 const WelcomeContainer = ({ setIntroPage, setSearchedReg }) => {
   return (
-    <div className="welcome-container glass">
+    <div className="welcome-container glass" data-testid="WelcomeContainer">
       <h1>Welcome to Leak Seeker</h1>
       <h3>Please choose an option:</h3>
       <div className="button-container">
