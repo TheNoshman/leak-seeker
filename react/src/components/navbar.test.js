@@ -8,7 +8,11 @@ describe('navbar component', () => {
     render(<Navbar/>);
     expect(screen.getByTestId('navbar')).toBeInTheDocument();
     expect(screen.getByRole('heading', {name: 'LeakSeeker'})).toBeInTheDocument();
-
+    expect(screen.getByRole('img', {name: 'brand logo'})).toBeInTheDocument();
+    expect(screen.getByRole('link', {name: 'Home'})).toBeInTheDocument();
+    expect(screen.getByRole('link', {name: 'About'})).toBeInTheDocument();
+    expect(screen.getByRole('link', {name: 'Contact'})).toBeInTheDocument();
+    expect(screen.getByRole('button', {name: 'Login'})).toBeInTheDocument();
   })
 
   // test('should render the logo', () => {
