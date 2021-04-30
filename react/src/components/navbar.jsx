@@ -3,7 +3,7 @@ import logo from '../images/logo.png'
 
 const Navbar = () => {
   return (
-    <div className='navbar-cont glass'>
+    <div className='navbar-cont glass' data-testid='navbar'>
       <section className='navbar-left'>
       <img className='navbar-logo-img' src={logo} alt='brand logo'/>
         <h1>LeakSeeker</h1>
