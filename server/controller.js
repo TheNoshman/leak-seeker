@@ -10,7 +10,7 @@ const getFunction = async function (req, res) {
     res.status(200).send(allDocs)
   } catch (error) {
     console.error('Failed to get document from database, error -> ', error)
-    res.sendStatus(404)
+    res.sendStatus(500)
   }
 }
 
@@ -45,6 +45,7 @@ const addFault = async function (req, res) {
     const record = await checkIfVehicleExists(requestBody)
     record.faults.push(...requestBody.faults)
     await record.save()
+    res.status(201).send(record)
   }
 
   // IF REG DOESNT EXIST IN DB, ADD REG + MAKE/ MODEL TO MOCK API COLLECTION DB
