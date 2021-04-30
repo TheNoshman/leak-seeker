@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-const url = process.env.URL
+const url = process.env.NODE_ENV !== 'test' ? process.env.URL : process.env.URL + '-test'
 
 mongoose.connect(
   url,
