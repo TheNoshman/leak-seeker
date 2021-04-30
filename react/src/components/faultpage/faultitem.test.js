@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import FaultItem from './faultitem';
 import '@testing-library/jest-dom/extend-expect'
 
+//This is a test
 const props = {
   summary: 'test'
 }
