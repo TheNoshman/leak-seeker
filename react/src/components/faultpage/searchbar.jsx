@@ -17,11 +17,12 @@ const SearchBar = ({setSearchedReg}) => {
   } else {
     setSearchedReg(inputText)
 
+
   }
 };
 
   return (
-    <div className='search-bar-cont'>
+    <div className='search-bar-cont' data-testid="SearchBar">
       <form className="search-input-box-form" onSubmit={(event) => onSearchSubmit(event)}>
         <label>
           <input
@@ -31,7 +32,7 @@ const SearchBar = ({setSearchedReg}) => {
             placeholder="Enter a registration number..."
             onChange={(event) => inputHandler(event)}
           />
-          <input className='sub-btn' type="submit" value="Search"/>
+          <input className='sub-btn' type="submit" data-testid="Submit-button" value="Search"/>
         </label>
       </form>
     </div>
