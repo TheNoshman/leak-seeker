@@ -49,8 +49,9 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
 
   return (
     // HANDLES WHICH DROP DOWN TO RENDER
-    <div className="button-div">
+    <div className="button-div" data-testid="welcomeChoiceBtnMain">
       <a
+        data-testid="searchbtn"
         className="welcome-choice-btn"
         href="#"
         onClick={() => {
@@ -64,7 +65,7 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
 
       {/*IF SEARCH FAULTS BUTTON IS CLICKED*/}
       {searchClicked && (
-        <div className="input-box-div glass">
+        <div className="input-box-div glass" data-testid="test">
           <form className="input-box-form" onSubmit={onSearchSubmit}>
             <label>
               <input
