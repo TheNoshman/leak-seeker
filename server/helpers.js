@@ -1,11 +1,11 @@
 const {
-  mongooseRegModel,
-  mongooseVehicleModel
+  MongooseRegModel,
+  MongooseVehicleModel
 } = require('./mongoose-schema.js')
 
 // HELPER FUNCTIONS FOR POST REQUEST
 const checkIfVehicleExists = async function (newFaultRecord) {
-  return await mongooseVehicleModel.findOne(
+  return await MongooseVehicleModel.findOne(
     {
       make: newFaultRecord.make,
       model: newFaultRecord.model
@@ -14,7 +14,7 @@ const checkIfVehicleExists = async function (newFaultRecord) {
 }
 
 const checkIfRegExists = async function (newFaultRecord) {
-  return await mongooseRegModel.findOne(
+  return await MongooseRegModel.findOne(
     {
       reg: newFaultRecord.reg
     }
