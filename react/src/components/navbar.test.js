@@ -14,10 +14,5 @@ describe('navbar component', () => {
     expect(screen.getByRole('link', {name: 'Contact'})).toBeInTheDocument();
     expect(screen.getByRole('button', {name: 'Login'})).toBeInTheDocument();
   })
-
-  // test('should render the logo', () => {
-  //   expect(screen.getByRole('heading', {name: 'LeakSeeker'})).toBeInTheDocument()
-  // })
-
 })
 
