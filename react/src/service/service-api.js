@@ -46,8 +46,8 @@ const postFaultToDatabase = (url, faultObj) => {
 // ################## HELPER FUNCTIONS ##################
 
 // SORTS FAULTS BY HIGHEST RATING FIRST
-export const sorter = (allFaultsObject) => {
-  const sorted = allFaultsObject.faults.sort((a, b) => b.rating - a.rating)
+export const sorter = (allFaultsObject, vehicleProperty = 'rating') => {
+  const sorted = allFaultsObject.faults.sort((a, b) => b[vehicleProperty] - a[vehicleProperty])
   allFaultsObject.faults = sorted
   return allFaultsObject
 }

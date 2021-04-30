@@ -17,6 +17,14 @@ describe('service-api', () => {
       .toEqual(sortedFaultsData)
     })
   });
-
   
+  describe('averager', () => {
+    it('Array should be sorted by highest rating', () => {
+      
+      expect(sorter(mocks))
+      .toEqual(sortedFaultsData)
+    })
+  });
+
+
 })
