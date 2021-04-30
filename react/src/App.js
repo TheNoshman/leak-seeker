@@ -1,6 +1,6 @@
-import './css/app.css'
-import Navbar from './components/navbar'
-import OverallMainContainer from './containers/overallmaincontainer'
+import "./css/app.css";
+import Navbar from "./components/navbar";
+import OverallMainContainer from "./containers/overallmaincontainer";
 
 function App() {
   return (
