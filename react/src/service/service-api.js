@@ -75,7 +75,6 @@ export const priceAverager = (faults) => {
 
 export const yearAverager = (faults) => {
   const arr = Array(4).fill(0)
-  console.log(faults)
   faults.forEach((el) => {
     switch (true) {
       case el < 1990:
