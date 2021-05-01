@@ -89,20 +89,22 @@ const FaultItem = ({
 
 
   return (
-    <div className={setBorder()} data-testid="FaultItem">
+    <div className={setBorder()} data-testid="FaultItemContainer">
       <div className="counter-section">
         <div>
           <i
+            data-testid="upVote"
             className="fas fa-arrow-up fa-lg icn"
             onClick={() => handleRatingChange('up')}
           ></i>
         </div>
 
         <div>
-          <p className={setRatingColour()}>{faultRating}</p>
+          <p data-testid="rating" className={setRatingColour()}>{faultRating}</p>
         </div>
         <div>
           <i
+            data-testid="downVote"
             className="fas fa-arrow-down fa-lg icn"
             onClick={() => handleRatingChange('down')}
           ></i>
@@ -159,6 +161,7 @@ const FaultItem = ({
           ></i>
         ) : (
           <i
+            data-testid="dropDownBtn"
             className="fas fa-arrow-circle-down arrow fa-3x"
             onClick={() => setExpand(!expand)}
           ></i>
