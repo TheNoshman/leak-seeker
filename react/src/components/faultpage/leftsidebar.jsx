@@ -2,7 +2,7 @@ import '../../css/faultpage.css';
 
 const LeftSidebar = ({ setLinkType, linkType, setIntroPage }) => {
   return (
-    <div className="left-col col glass">
+    <div className="left-col col glass" data-testid="LeftSideBar">
       <div className='left-btn-div'>
         <a
           className="welcome-choice-btn glass"
