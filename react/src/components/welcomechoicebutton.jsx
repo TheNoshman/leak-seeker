@@ -35,7 +35,7 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
   const onLogSubmit = async (event) => {
     event.preventDefault();
 
-    if (!inputText.reg || !inputText.make || !inputText.model) {
+    if (!inputText.reg || !inputText.make) {
       alert('Please enter your vehicle details');
       return;
     } else {
@@ -65,7 +65,7 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
 
       {/*IF SEARCH FAULTS BUTTON IS CLICKED*/}
       {searchClicked && (
-        <div className="input-box-div glass" data-testid="test">
+        <div className="input-box-div glass">
           <form className="input-box-form" onSubmit={onSearchSubmit}>
             <label>
               <input
@@ -79,7 +79,7 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
             </label>
 
             <p>Your reg:</p>
-            <p className="input-output">{inputText.reg}</p>
+            <p className="input-output" data-testid="paragraph">{inputText.reg}</p>
             <input type="submit" value="Submit" className='sub-btn'/>
           </form>
         </div>
@@ -115,7 +115,7 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
 
 
 
-            <input type="submit" value="Submit" className='sub-btn'/>
+            <input data-testid="registerBtn" type="submit" value="Submit" className='sub-btn'/>
           </form>
         </div>
       )}
