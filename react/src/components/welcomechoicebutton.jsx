@@ -100,13 +100,25 @@ const WelcomeChoiceButton = ({ searchType, setIntroPage, setSearchedReg }) => {
             </label>
 
             <label className='cen'>
-              Make/ Brand:
+              Make
               <input
                 className='input-text-box'
                 type='text'
                 name='make'
                 value={inputText.make}
                 placeholder='Enter your vehicles manufacturer...'
+                onChange={(event) => inputHandler(event)}
+              />
+            </label>
+
+            <label className='cen'>
+              Model
+              <input
+                className='input-text-box'
+                type='text'
+                name='model'
+                value={inputText.model}
+                placeholder='Enter your vehicles model...'
                 onChange={(event) => inputHandler(event)}
               />
             </label>
