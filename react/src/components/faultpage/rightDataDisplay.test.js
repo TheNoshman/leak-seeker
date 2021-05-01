@@ -1,8 +1,8 @@
 import React from 'react';
-import RightDataDisplay from './rightdatadisplay';
 import '@testing-library/jest-dom/extend-expect';
 import userEvent from '@testing-library/user-event';
 import { fireEvent, render, screen } from '@testing-library/react';
+import RightDataDisplay from './rightdatadisplay';
 import ResizeObserver from './ResizeObserver';
 
 
