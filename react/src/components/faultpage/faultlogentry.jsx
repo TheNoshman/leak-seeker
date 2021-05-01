@@ -48,7 +48,7 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
         faults: faultsArray,
       };
       console.log('SEARCH -> NEXT STEP', completeObject);
-      await saveFaultToDatabase(completeObject);
+      // await saveFaultToDatabase(completeObject);
       setFormCompleted(true);
       setSearchedReg(completeObject.reg);
       setNewFaultObject({
@@ -71,7 +71,7 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
   };
 
   return (
-    <div className="log-fault-container">
+    <div className="log-fault-container" data-testid='FaultLogEntry'>
       {!formCompleted ? (
         <form className="log-forms-container glass" onSubmit={onSearchSubmit}>
           <label className='log-label'>
@@ -120,6 +120,7 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
               min="1950"
               step="1"
               max="2021"
+              data-testid="yearInput"
             ></input>
 
           <label className='log-label'>
@@ -161,6 +162,7 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
               min="0"
               step="50"
               max="5000"
+              data-testid="repairCost"
             ></input>
 
           <label className='log-label'>
@@ -177,7 +179,7 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
             />
 
           <label className='log-label'>Upload images of fault:
-          <input className='file' type="file" id="myFile" name="filename"></input>
+          <input className='file' type="file" id="myFile" name="filename" data-testid="fileInput"></input>
           </label>
           <input className='sub-btn logbtn' type="submit" value="Submit" />
           <input className='sub-btn logbtn' type="reset" />
