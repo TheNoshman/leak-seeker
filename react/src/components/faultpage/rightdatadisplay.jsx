@@ -8,9 +8,9 @@ import {
 import { useState } from 'react';
 
 const RightDataDisplay = ({ allFaultsObject }) => {
-  const faultsByPrice = allFaultsObject[0].faults.map((el) => el.priceToFix);
-  const faultsByArea = allFaultsObject[0].faults.map((el) => el.area);
-  const faultsByYear = allFaultsObject[0].faults.map((el) => el.year);
+  const faultsByPrice = allFaultsObject[0].faults.map((el) => el.priceToFix);//Return array with pricestoFix of each
+  const faultsByArea = allFaultsObject[0].faults.map((el) => el.area);// Return array with area of each
+  const faultsByYear = allFaultsObject[0].faults.map((el) => el.year); // Returns array with year of each
 
   const prices = priceAverager(faultsByPrice);
   const areas = areaAverager(faultsByArea);
@@ -22,19 +22,9 @@ const RightDataDisplay = ({ allFaultsObject }) => {
 
   const [dataType, setDataType] = useState([areaStats, 'Problem area', areas]);
 
-  console.log('AREAS = ', areas)
 
   const data = {
     labels: dataType[0],
-
-
-
-
-
-
-
-
-
 
     datasets: [
       {
@@ -56,11 +46,11 @@ const RightDataDisplay = ({ allFaultsObject }) => {
   };
 
   return (
-    <div className="data-container col glass">
+    <div className="data-container col glass" data-testid="rightDataDisplayContainer">
       {allFaultsObject.length > 0 && (
         <div>
           <h2>{dataType[1]} data</h2>
-          <Doughnut data={data} width={400} height={400} />
+          <Doughnut  data={data} width={400} height={400} />
           <div className="stats">
             <a
               onClick={() => setDataType([areaStats, 'Problem area', areas])}
@@ -68,7 +58,7 @@ const RightDataDisplay = ({ allFaultsObject }) => {
               className="data-choice-btn"
             >
               <div className="icn">
-                <i class="fas fa-car-crash fa-lg"></i>
+                <i className="fas fa-car-crash fa-lg"></i>
               </div>
               Problem areas
             </a>
@@ -81,7 +71,7 @@ const RightDataDisplay = ({ allFaultsObject }) => {
               className="data-choice-btn"
             >
               <div className="icn">
-                <i class="fas fa-dollar-sign fa-lg"></i>
+                <i className="fas fa-dollar-sign fa-lg"></i>
               </div>
               Average repair price
             </a>
@@ -94,7 +84,7 @@ const RightDataDisplay = ({ allFaultsObject }) => {
               className="data-choice-btn"
             >
               <div className="icn">
-                <i class="far fa-calendar-alt fa-lg"></i>
+                <i className="far fa-calendar-alt fa-lg"></i>
               </div>
               Number of faults by year
             </a>
