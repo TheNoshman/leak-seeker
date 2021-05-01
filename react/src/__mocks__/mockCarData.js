@@ -1,3 +1,5 @@
+//MOCK CAR DATA
+
 const mockFaultsData = {
     reg: "AB12ABC",
     make: "Ford",
@@ -158,4 +160,14 @@ const sortedFaultsData = {
   ]
 }
 
-module.exports = {mockFaultsData, sortedFaultsData};
+//MOCK PRICE / YEAR DATA
+
+const mockPrices = [250, 4500, 50, 700];
+const mockYears = [1999, 2004, 2006, 2015];
+
+module.exports = {
+  mockFaultsData, 
+  sortedFaultsData,
+  mockPrices,
+  mockYears
+};
