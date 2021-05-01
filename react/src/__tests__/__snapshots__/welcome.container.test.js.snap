@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome Page should take a snapshot of the welcome screen 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="navbar-cont glass"
+    >
+      <section
+        class="navbar-left"
+      >
+        <img
+          alt="brand logo"
+          class="navbar-logo-img"
+          src="logo.png"
+        />
+        <h1>
+          LeakSeeker
+        </h1>
+      </section>
+      <section
+        class="navbar-right"
+      >
+        <a
+          class="navbar-right-item"
+          href="x"
+        >
+          Home
+        </a>
+        <a
+          class="navbar-right-item"
+          href="x"
+        >
+          About
+        </a>
+        <a
+          class="navbar-right-item"
+          href="x"
+        >
+          Contact
+        </a>
+        <button
+          class="navbar-right-item login-btn"
+          type="button"
+        >
+          Login
+        </button>
+      </section>
+    </div>
+    <div
+      class="mainpage"
+    >
+      <div
+        class="welcome-container glass"
+      >
+        <h1>
+          Welcome to Leak Seeker
+        </h1>
+        <h3>
+          Please choose an option:
+        </h3>
+        <div
+          class="button-container"
+        >
+          <div
+            class="button-div"
+          >
+            <a
+              class="welcome-choice-btn"
+              href="#"
+            >
+              Search Faults
+            </a>
+          </div>
+          <div>
+            <img
+              alt="brand logo"
+              class="welcome-logo"
+              src="logo.png"
+            />
+          </div>
+          <div
+            class="button-div"
+          >
+            <a
+              class="welcome-choice-btn"
+              href="#"
+            >
+              Register Fault
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="circle1"
+    />
+    <div
+      class="circle2"
+    />
+    <div
+      class="circle3"
+    />
+    <div
+      class="circle4"
+    />
+  </div>
+</DocumentFragment>
+`;
