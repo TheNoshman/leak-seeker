@@ -1,4 +1,4 @@
-const localURL = "http://localhost:3001/";
+const localURL = "http://localhost:3000/";
 
 export const getAllFaults = () => fetchRequest("getallfaults");
 export const getFaultsByReg = (reg) => getRegFaultsRequest(`search/${reg}`);
@@ -39,7 +39,7 @@ const postFaultToDatabase = (url, faultObj) => {
       accept: "application/json",
     },
   })
-    .then((result) => result.json())
+    // .then((result) => result.json())
     .catch((err) => console.error(err));
 
 };

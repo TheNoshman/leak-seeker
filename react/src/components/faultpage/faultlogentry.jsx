@@ -48,7 +48,7 @@ const FaultLogEntry = ({ setLinkType, setSearchedReg }) => {
         faults: faultsArray,
       };
       console.log('SEARCH -> NEXT STEP', completeObject);
-      // await saveFaultToDatabase(completeObject);
+      await saveFaultToDatabase(completeObject);
       setFormCompleted(true);
       setSearchedReg(completeObject.reg);
       setNewFaultObject({
