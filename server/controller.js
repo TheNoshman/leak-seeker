@@ -59,7 +59,8 @@ const addFault = async function (req, res) {
     veh = true;
     let record = await checkIfVehicleExists(requestBody);
     record.faults.push(...requestBody.faults);
-    await record.save();
+    // await record.save();
+    res.status(200).send(`Saved POST request to database`);
   }
 
   // IF REG DOESNT EXIST IN DB, ADD REG + MAKE/ MODEL TO MOCK API COLLECTION DB
@@ -74,6 +75,7 @@ const addFault = async function (req, res) {
   // IF VEHICLE FAULT RECORD DOESNT EXIST, CREATE IT
   if (veh === false) {
     const faultRecord = new mongooseVehicleModel({
+      reg: requestBody.reg,
       make: requestBody.make,
       model: requestBody.model,
       faults: requestBody.faults,
