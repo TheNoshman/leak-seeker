@@ -38,6 +38,50 @@ describe('GET /search/:reg', () => {
   })
 })
 
+describe('POST /addfault', () => {
+  test('should respond with 201 created', done => {
+    const data = {
+      reg: "AB12ABC",
+      make: "Ford",
+      model: "Falcon",
+      faults: [
+          {
+              summary: "Front suspension top mounts rusting",
+              description: "I took my car into the garage to have a regular service ",
+              priceToFix: 600,
+              rating: 154,
+              area: "drivetrain",
+              year: 2016,
+              faultLogged: "2016-04-27T10:28:32.645Z"
+          }
+      ]
+    }
+    request(app)
+    .post('/addfault')
+    .send(data)
+    // .set('Accept', 'application/json')
+    // .expect('Content-Type', /json/)
+    .expect(201)
+    .end((err) => {
+      if(err) return done(err)
+      done();
+    })
+  })
+
+  test('responds with 400 on bad request', done => {
+    const data = {}
+    request(app)
+      .post('/addfault')
+      .send(data)
+      .expect(400)
+      .expect(/User not created/)
+      .end((err) => {
+        if(err) return done(err)
+        done();
+      })
+  })
+})
+
 
 afterAll(async () => {
   await mongoose.connection.close();

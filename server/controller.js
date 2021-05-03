@@ -55,35 +55,40 @@ const addFault = async function (req, res) {
   console.log(requestBody.faults)
   let veh = false;
 
-  // IF VEHICLE MAKE & MODEL EXISTS, ADD NEW FAULTS TO EXISTING RECORD
-  if (await checkIfVehicleExists(requestBody)) {
-    veh = true;
-    let record = await checkIfVehicleExists(requestBody);
-    record.faults.push(...requestBody.faults);
-    // await record.save();
-    res.status(200).send(`Saved POST request to database`);
-  }
+  try {
+    // IF VEHICLE MAKE & MODEL EXISTS, ADD NEW FAULTS TO EXISTING RECORD
+    if (await checkIfVehicleExists(requestBody)) {
+      veh = true;
+      let record = await checkIfVehicleExists(requestBody);
+      record.faults.push(...requestBody.faults);
+      // await record.save();
+      res.status(201).send(`Saved POST request to database`);
+    }
 
-  // IF REG DOESNT EXIST IN DB, ADD REG + MAKE/ MODEL TO MOCK API COLLECTION DB
-  if (!(await checkIfRegExists(requestBody))) {
-    const regRecord = new mongooseRegModel({
-      reg: requestBody.reg,
-      make: requestBody.make,
-      model: requestBody.model,
-    });
-    await regRecord.save();
-  }
-  // IF VEHICLE FAULT RECORD DOESNT EXIST, CREATE IT
-  if (veh === false) {
-    const faultRecord = new mongooseVehicleModel({
-      reg: requestBody.reg,
-      make: requestBody.make,
-      model: requestBody.model,
-      faults: requestBody.faults,
-    });
-    await faultRecord.save();
-    // EDIT THIS
-    res.status(200).send(`Saved POST request to database`);
+    // IF REG DOESNT EXIST IN DB, ADD REG + MAKE/ MODEL TO MOCK API COLLECTION DB
+    if (!(await checkIfRegExists(requestBody))) {
+      const regRecord = new mongooseRegModel({
+        reg: requestBody.reg,
+        make: requestBody.make,
+        model: requestBody.model,
+      });
+      await regRecord.save();
+    }
+    // IF VEHICLE FAULT RECORD DOESNT EXIST, CREATE IT
+    if (veh === false) {
+      const faultRecord = new mongooseVehicleModel({
+        reg: requestBody.reg,
+        make: requestBody.make,
+        model: requestBody.model,
+        faults: requestBody.faults,
+      });
+      await faultRecord.save();
+      // EDIT THIS
+      res.status(201).send(`Saved POST request to database`);
+    }
+
+  } catch (err) {
+    res.status(400).send('User not created')
   }
 };
 
