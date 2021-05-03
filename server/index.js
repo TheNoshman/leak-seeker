@@ -22,3 +22,5 @@ app.use(router);
     console.log('Cannot connect to server ->', error)
   }
 })()
+
+module.exports = app;
