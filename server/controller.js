@@ -21,15 +21,15 @@ const getFunction = async function (req, res) {
 // THIS WILL BE THE MAIN GET REQUEST
 // GET SPECIFIC VEHCILE RECORDS FROM REG REQUEST
 const getFaultsFromReg = async function (req, res) {
-  console.log(req.params.reg)
+  console.log('REGISTRATION => ', req.params.reg)
   try {
     const regToVehicle = await mongooseRegModel.findOne(
-      { reg: req.params.reg },
+      {reg: req.params.reg },
       // (err, record) => {
         // console.log('regToVehicle = ', record);
       // }
     );
-
+      console.log('regToVehicle =>', regToVehicle)
     const vehicleRecord = await mongooseVehicleModel.findOne(
       {
         make: regToVehicle.make,
@@ -41,9 +41,10 @@ const getFaultsFromReg = async function (req, res) {
     );
 
     res.status(200).send(vehicleRecord);
-    console.log('get request success, send data -> ', vehicleRecord);
+    // console.log('get request success, send data -> ', vehicleRecord);
   } catch (error) {
-    console.error('Failed to get document from database, error -> ', error);
+    // console.error('Failed to get document from database, error -> ', error);
+    res.status(404).send('Fault not found')
   }
 };
 
@@ -85,44 +86,44 @@ const addFault = async function (req, res) {
 };
 
 // PUT / UPDATE REQUEST
-const updateFunction = async function (req, res) {
-  // // MIGHT BE AN OBJECT, MAYBE NEEDS DESTRUCTURING
-  // const { name, newValue } = req.params;
-  // // console.log(name, newValue)
-  // try {
-  //   // Returns an array, we want the json object
-  //   const doc = await mongooseModel.find({ name: name });
-  //   doc[0].age = newValue;
-  //   console.log(doc);
-  //   await doc[0].save();
-  //   res.send(`Update request success`);
-  // } catch (error) {
-  //   console.error(
-  //     'Failed to find and update document from database, error -> ',
-  //     error
-  //   );
-  // }
-};
+// const updateFunction = async function (req, res) {
+//   // // MIGHT BE AN OBJECT, MAYBE NEEDS DESTRUCTURING
+//   // const { name, newValue } = req.params;
+//   // // console.log(name, newValue)
+//   // try {
+//   //   // Returns an array, we want the json object
+//   //   const doc = await mongooseModel.find({ name: name });
+//   //   doc[0].age = newValue;
+//   //   console.log(doc);
+//   //   await doc[0].save();
+//   //   res.send(`Update request success`);
+//   // } catch (error) {
+//   //   console.error(
+//   //     'Failed to find and update document from database, error -> ',
+//   //     error
+//   //   );
+//   // }
+// };
 
 // DELETE REQUEST
-const deleteFunction = async function (req, res) {
-  // const { name } = req.params;
-  // console.log(name);
-  // try {
-  //   await mongooseModel.findOneAndRemove({ name: name });
-  //   res.send(`Delete request success`);
-  // } catch (error) {
-  //   console.error(
-  //     'Failed to find and remove document from database, error -> ',
-  //     error
-  //   );
-  // }
-};
+// const deleteFunction = async function (req, res) {
+//   // const { name } = req.params;
+//   // console.log(name);
+//   // try {
+//   //   await mongooseModel.findOneAndRemove({ name: name });
+//   //   res.send(`Delete request success`);
+//   // } catch (error) {
+//   //   console.error(
+//   //     'Failed to find and remove document from database, error -> ',
+//   //     error
+//   //   );
+//   // }
+// };
 
 module.exports = {
   getFunction,
   getFaultsFromReg,
-  addFault,
-  updateFunction,
-  deleteFunction,
+  addFault
+  // updateFunction,
+  // deleteFunction,
 };
