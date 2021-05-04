@@ -5,6 +5,7 @@ const LeftSidebar = ({ setLinkType, linkType, setIntroPage }) => {
     <div className="left-col col glass" data-testid="LeftSideBar">
       <div className='left-btn-div'>
         <a
+          data-cy="sideBarHome"
           className="welcome-choice-btn glass"
           href="#"
           onClick={() => setIntroPage(true)}
