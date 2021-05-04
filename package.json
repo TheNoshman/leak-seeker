@@ -1,0 +1,22 @@
+{
+  "name": "leak-seeker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanGelo1/leak-seeker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanGelo1/leak-seeker/issues"
+  },
+  "homepage": "https://github.com/IvanGelo1/leak-seeker#readme",
+  "dependencies": {
+    "cypress": "^7.2.0"
+  }
+}
