@@ -1,9 +1,9 @@
-const localURL = 'http://localhost:3001/';
+const localURL = 'http://localhost:3001/'
 
-export const getAllFaults = () => fetchRequest(`getallfaults`);
-export const getFaultsByReg = (reg) => getRegFaultsRequest(`search/${reg}`);
-export const saveFaultToDatabase = (faultObj) => postFaultToDatabase(`addfault`, faultObj);
-
+export const getAllFaults = () => fetchRequest('getallfaults')
+export const getFaultsByReg = (reg) => getRegFaultsRequest(`search/${reg}`)
+export const saveFaultToDatabase = (faultObj) => postFaultToDatabase('addfault', faultObj)
+/* global fetch */
 
 // export const postNewEvent = (event) => createEvent(`events`, event);
 
@@ -14,9 +14,9 @@ const fetchRequest = (url) => {
     .then((result) => result.json())
     .then((result) => sorter(result))
     .catch((err) => {
-      console.log(`${err.message}`);
-    });
-};
+      console.log(`${err.message}`)
+    })
+}
 
 const getRegFaultsRequest = (url) => {
   return fetch(`${localURL}${url}`)
@@ -24,9 +24,9 @@ const getRegFaultsRequest = (url) => {
     .then((result) => result.json())
     .then((result) => sorter(result))
     .catch((err) => {
-      console.log(`${err.message}`);
-    });
-};
+      console.log(`${err.message}`)
+    })
+}
 
 // POST REQUEST -
 const postFaultToDatabase = (url, faultObj) => {
@@ -36,84 +36,79 @@ const postFaultToDatabase = (url, faultObj) => {
     body: JSON.stringify(faultObj),
     headers: {
       'content-type': 'application/json',
-      accept: 'application/json',
-    },
+      accept: 'application/json'
+    }
   })
     .then((result) => result.json())
-    .catch((err) => console.error(err));
-
-};
+    .catch((err) => console.error(err))
+}
 
 // ################## HELPER FUNCTIONS ##################
 
 // SORTS FAULTS BY HIGHEST RATING FIRST
-export const sorter = (allFaultsObject) => {
-  const sorted = allFaultsObject.faults.sort((a, b) => b.rating - a.rating);
-  allFaultsObject.faults = sorted;
-  return allFaultsObject;
-};
+export const sorter = (allFaultsObject, vehicleProperty = 'rating') => {
+  const sorted = allFaultsObject.faults.sort((a, b) => b[vehicleProperty] - a[vehicleProperty])
+  allFaultsObject.faults = sorted
+  return allFaultsObject
+}
 
 // DATA AVERAGER FOR PIE CHART
 export const priceAverager = (faults) => {
-    const arr = Array(4).fill(0)
-    faults.forEach((el) => {
-
-      switch (true) {
-        case el < 100:
+  const arr = Array(4).fill(0)
+  faults.forEach((el) => {
+    switch (true) {
+      case el < 100:
         arr[0]++
         break
-        case el < 500:
+      case el < 500:
         arr[1]++
         break
-        case el < 1000:
+      case el < 1000:
         arr[2]++
         break
-        default: arr[3]++
-      }
+      default: arr[3]++
     }
-      )
-    return arr
   }
+  )
+  return arr
+}
 
 export const yearAverager = (faults) => {
-    const arr = Array(4).fill(0)
-    console.log(faults)
-    faults.forEach((el) => {
-
-      switch (true) {
-        case el < 1990:
+  const arr = Array(4).fill(0)
+  faults.forEach((el) => {
+    switch (true) {
+      case el < 1990:
         arr[0]++
         break
-        case el < 2000:
+      case el < 2000:
         arr[1]++
         break
-        case el < 2010:
+      case el < 2010:
         arr[2]++
         break
-        default: arr[3]++
-      }
+      default: arr[3]++
     }
-      )
-    return arr
   }
+  )
+  return arr
+}
 
-  export const areaAverager = (faults) => {
-    const arr = Array(4).fill(0)
-    faults.forEach((el) => {
-
-      switch (true) {
-        case el === 'interior':
+export const areaAverager = (faults) => {
+  const arr = Array(4).fill(0)
+  faults.forEach((el) => {
+    switch (true) {
+      case el === 'interior':
         arr[0]++
         break
-        case el === 'bodywork':
+      case el === 'bodywork':
         arr[1]++
         break
-        case el === 'engine':
+      case el === 'engine':
         arr[2]++
         break
-        default: arr[3]++
-      }
+      default: arr[3]++
     }
-      )
-    return arr
   }
+  )
+  return arr
+}

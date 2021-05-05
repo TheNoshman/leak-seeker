@@ -1,24 +1,24 @@
 const {
-  mongooseRegModel,
-  mongooseVehicleModel,
-} = require('./mongoose-schema.js');
+  MongooseRegModel,
+  MongooseVehicleModel
+} = require('./mongoose-schema.js')
 
 // HELPER FUNCTIONS FOR POST REQUEST
 const checkIfVehicleExists = async function (newFaultRecord) {
-  return await mongooseVehicleModel.findOne(
+  return await MongooseVehicleModel.findOne(
     {
       make: newFaultRecord.make,
-      model: newFaultRecord.model,
+      model: newFaultRecord.model
     }
-  );
-};
+  )
+}
 
 const checkIfRegExists = async function (newFaultRecord) {
-  return await mongooseRegModel.findOne(
+  return await MongooseRegModel.findOne(
     {
-      reg: newFaultRecord.reg,
+      reg: newFaultRecord.reg
     }
-  );
-};
+  )
+}
 
-module.exports = {checkIfVehicleExists, checkIfRegExists}
+module.exports = { checkIfVehicleExists, checkIfRegExists }
