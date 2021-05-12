@@ -5,7 +5,7 @@
 </h1>
 <div align="center"> <i>Built to help you purchase second hand with confidence</i></div>
 
-<img src="https://github.com/TheNoshman/leak-seeker/blob/master/react/src/images/logo2.png?raw=true" alt="logo" width="100">
+<div  align="center" ><img src="https://github.com/TheNoshman/leak-seeker/blob/master/react/src/images/logo2.png?raw=true" alt="logo" width="100"></div>
 
 ## 📋 Table of contents
 
