@@ -9,13 +9,13 @@
 
 ## 📋 Table of contents
 
-* [Overview](#overview)
+* [Overview](#-overview)
 
-* [Technologies](#technologies)
+* [Technologies](#-technologies)
 
-* [Setup](#setup)
+* [Setup](#-setup)
 
-* [About](#about)
+* [About](#-about)
 
   
 
