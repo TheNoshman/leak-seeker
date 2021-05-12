@@ -1,6 +1,6 @@
 ## Table of contents
 
-![alt text](https://github.com/TheNoshman/leak-seeker/blob/master/.screenshot.png?raw=true)
+![alt text](https://github.com/TheNoshman/leak-seeker/blob/master/screenshot.png?raw=true)
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
