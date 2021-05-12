@@ -41,10 +41,9 @@ Welcome to LeakSeeker - a brand new web app, built from the ground up as a resou
   * Yellow = fault seen less than 50 times
   * Red = fault seen 50 + times
 
----
+
 
 ## 📸 Images
----
 
 ![screenshot](https://github.com/TheNoshman/leak-seeker/blob/master/screen1.png?raw=true)
 
